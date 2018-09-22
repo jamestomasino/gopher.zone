@@ -3,6 +3,11 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>http://gopher.zone/posts/what-makes-gopher-special/</loc>
+    <lastmod>2018-09-21T22:04:44-04:00</lastmod>
+  </url>
+  
+  <url>
     <loc>http://gopher.zone/posts/publishing-on-gophernicus/</loc>
     <lastmod>2018-09-21T21:55:28-04:00</lastmod>
   </url>
@@ -39,7 +44,7 @@
   
   <url>
     <loc>http://gopher.zone/</loc>
-    <lastmod>2018-09-21T21:55:28-04:00</lastmod>
+    <lastmod>2018-09-21T22:04:44-04:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -51,7 +56,7 @@
   
   <url>
     <loc>http://gopher.zone/posts/</loc>
-    <lastmod>2018-09-21T21:55:28-04:00</lastmod>
+    <lastmod>2018-09-21T22:04:44-04:00</lastmod>
     <priority>0</priority>
   </url>
   

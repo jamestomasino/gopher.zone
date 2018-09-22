@@ -6,10 +6,22 @@
     <description>Recent content in Posts on Highway to the Gopher Zone</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Fri, 21 Sep 2018 21:55:28 -0400</lastBuildDate>
+    <lastBuildDate>Fri, 21 Sep 2018 22:04:44 -0400</lastBuildDate>
     
 	<atom:link href="http://gopher.zone/posts/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>What Makes Gopher Special</title>
+      <link>http://gopher.zone/posts/what-makes-gopher-special/</link>
+      <pubDate>Fri, 21 Sep 2018 22:04:44 -0400</pubDate>
+      
+      <guid>http://gopher.zone/posts/what-makes-gopher-special/</guid>
+      <description>This is a collection of posts about what makes gopher special.
+Originally published by ckeen at gopher://vernunftzentrum.de/0/ckeen/phlog/2018-03-05-What-makes-gopher-special-for-me.md
+Sean Tilly (someone I don&amp;rsquo;t know yet) has asked on mastodon about the recurring mentions of gopher and what&amp;rsquo;s so special about it. This got me thinking and these are my reasons why I think gopher is interesting:
+It is simple: There are no fancy frameworks to learn, the programs needed to run for hosting gopher yourself is tiny compared to other things on the internet.</description>
+    </item>
     
     <item>
       <title>Publishing on gophernicus</title>
