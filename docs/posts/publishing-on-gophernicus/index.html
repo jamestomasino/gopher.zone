@@ -20,10 +20,10 @@
     <title>
       
       
-         Tips for Publishing 
+         Publishing on gophernicus 
       
     </title>
-    <link rel="canonical" href="http://gopher.zone/posts/tips-for-publishing/">
+    <link rel="canonical" href="http://gopher.zone/posts/publishing-on-gophernicus/">
 
     <style>
   * {
@@ -402,7 +402,7 @@
 
 
 <section id=content>
-  <h1> Tips for Publishing </h1>
+  <h1> Publishing on gophernicus </h1>
 
   
     <div id=sub-header>
@@ -411,93 +411,74 @@
   
 
   <div class="entry-content">
-    <p>Originally published by <strong>bitreich</strong> at
-<em>gopher://bitreich.org/0/tutorials/publishing-guideline.txt</em></p>
+    <p>Originally published by <strong>bitreich.org</strong> at
+<em>gopher://bitreich.org/0/tutorials/publish-gophernicus.txt</em></p>
 
 <hr />
 
 <pre>
-This document will give you a few hints about publishing through
-gopher.
+Gophernicus is quite fussy about permissions, to minimise the risk of
+accidentally serving files not intended for public consumptions.  Only
+world accessible content will be served, so chmod files o+r and
+directories o+rw.  This is a common cause of confusion and frustration
+for beginners.
 
-Line length
-===========
+Gophernicus supports so-called "personal gopherspaces".  If a user
+"bob" has a directory named "public_gopher" in their home directory,
+then the file /home/bob/public_gopher/foo/bar/baz.ext will be
+accessible via the selector ~bob/foo/bar/baz.ext (if permissions
+allow).  The name of the "public_gopher" directory can be changed via
+the -u option.  This is a convenient feature for those who want to
+host multiple users, although it can of course be emulated with
+symlinks for other server software.
 
-The rendering of content is client specific. However most clients
-will present the user with a text based interface, so you should be
-conservative on the maximum line length in your menus. As clients
-will add a couple of characters to mark item types, a line width of
-69 characters is recommended.
+Automatically generated directory listings list files in alphabetical
+order.  This is less than ideal for phloggers who usually want the
+most recent entry to appear at the top.  The conventional workaround
+for this seems to be to prefix filenames with some kind of timestamp
+that sorts nicely alphabetically.  YYYYMMDD timestamps obviously work
+nicely, but a three-character alphanumeric code also sees some use,
+see e.g. gopher://grex.org:70/0/~tfurrows/phlog_filename.txt.
 
-The menu
-========
+Automatically generated menus can be overridden by creating a file
+named "gophermap" in any directory.  Menu items are specified with
+lines of the type:
 
-The main entry point and user interface between your readers and your
-content is the gopher menu item (item '1' as you may recall).  The
-selectors in a menu will define the information hierarchy. Choose a
-flat hierarchy if you can so readers will get to the content easily
-and without traversing too many menus.
+Xname&lt;TAB&gt;selector&lt;TAB&gt;host&lt;TAB&gt;port
 
-Use helpful item descriptions for your selectors, this will aid both
-human and nonhuman readers: indexers will most likely index menu
-items only.  Be as specific as possible. If it is a binary item type
-hint at its intended format, so your readers will know what to
-expect. Using a useful filename scheme for selectors is also helpful.
+where X is the gopher item type. The host and port may be omitted,
+in which case they will be set to the same host and port that the
+server is running on (the server's idea of its own hostname can be
+forced with the -h option).  The selector may also be omitted, in
+which case it will be set equal to the name.  Lines not beginning
+with a valid item type or with one of Gophernicus' own non-standard
+control characters are treated as information lines (type i).
 
-You may decorate your menus with informational items (item 'i').
-Clients will display them as is without additional tags.  Around the
-gopherspace a lot of ASCII art is used to create a pleasant
-appearance of a gopher site. Some services also include explanations
-for the specific menu, and use 'i' items for grouping selectors.
+It is important to note that selectors which do not begin with a /
+will be interpreted as *relative* links, e.g. a selector of "bar"
+specified in "foo/gophermap" will point to "foo/bar".  Selectors
+beginning with / are treated as absolute links.  Some other gopher
+servers with seemingly compatible gophermap syntax (e.g. PyGopherd)
+treat all selectors as absolute and this can cause headaches when
+attempting to port gophermaps from one server to another.
 
-There are clients that do not offer a 'back' button. Be kind to those
-users and provide navigational selectors in your menus.  Make the
-journey through your gopher space easy!
+Dynamically generated menus are possible by making the "gophermap"
+file a world-executable script which produces output on stdout of
+exactly the same format as a static gophermap.
 
-On your travels through gopher sites, you will encounter gopher sites
-that use menu and informational items to mimick a page with embedded
-links.  There is an ongoing dispute whether this is good style. We do
-not recommend this style as it delutes the meaning of the menu item.
-For starters you should stick to single file items to store your
-content. Once you gain more experience with publishing content in
-gopher you can always change your mind later!
-
-Selector hierarchy
-==================
-
-By design a gopher site should present a hierarchy of content
-selectors to the user.  These mimick a file system by intention.
-However this does not need to mtch the real hierarchy of your storage
-filesystem.  An example:
-
-Alicia has a gopher blog (aka 'phlog'). She writes daily posts.  To
-make it easy on her users she has a menu item on the phlog/ selector
-that presents the latest 5 posts and a selector to an archive menu
-linking to all her posts.  On disk however both the menus and the
-articles reside in the same directory. A script creates the
-selectors in the menu files and rotates them. The post files however
-remain untouched and their selectors will not change over time.  This
-means that external links to her post will still be valid later.
-
-Site generators
-===============
-
-The easiest creation of content is done manually. If you would like
-to automate some task then there are site generators. Most of these
-consists of a collection of shell scripts you can adapt to your
-needs. Search veronica for cl-yag or burrow for starters.
+As a lightweight alternative to gophermaps, a file named "gophertag"
+may be placed in any directory containing a "user friendly" name for
+that directory to be used in automatically generated listings (e.g.
+you could placed a gophertag file containing the text
+"Miscellaneous photographs" in the directory "misc_photos").
 </pre>
-
-<!--  vim: set shiftwidth=4 tabstop=4 expandtab: -->
 
   </div>
 
   <div id=links>
     
-      <a class="basic-alignment left" href="http://gopher.zone/posts/tutorial-for-absolute-beginners/">&laquo; Tutorial for Absolute Beginners</a>
+      <a class="basic-alignment left" href="http://gopher.zone/posts/tips-for-publishing/">&laquo; Tips for Publishing</a>
     
-    
-      <a class="basic-alignment left" href="http://gopher.zone/posts/publishing-on-gophernicus/">Publishing on gophernicus &raquo;</a>
     
   </div>
 </section>

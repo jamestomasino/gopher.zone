@@ -6,10 +6,20 @@
     <description>Recent content on Highway to the Gopher Zone</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Fri, 21 Sep 2018 21:52:20 -0400</lastBuildDate>
+    <lastBuildDate>Fri, 21 Sep 2018 21:55:28 -0400</lastBuildDate>
     
 	<atom:link href="http://gopher.zone/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Publishing on gophernicus</title>
+      <link>http://gopher.zone/posts/publishing-on-gophernicus/</link>
+      <pubDate>Fri, 21 Sep 2018 21:55:28 -0400</pubDate>
+      
+      <guid>http://gopher.zone/posts/publishing-on-gophernicus/</guid>
+      <description>Originally published by bitreich.org at gopher://bitreich.org/0/tutorials/publish-gophernicus.txt
+ Gophernicus is quite fussy about permissions, to minimise the risk of accidentally serving files not intended for public consumptions. Only world accessible content will be served, so chmod files o+r and directories o+rw. This is a common cause of confusion and frustration for beginners. Gophernicus supports so-called &#34;personal gopherspaces&#34;. If a user &#34;bob&#34; has a directory named &#34;public_gopher&#34; in their home directory, then the file /home/bob/public_gopher/foo/bar/baz.</description>
+    </item>
     
     <item>
       <title>Tips for Publishing</title>
