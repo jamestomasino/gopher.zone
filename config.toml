@@ -14,4 +14,4 @@ pygmentscodefences  = true
 
 [[menu.main]]
     name = "About"
-    url  = "https://github.com/jamestomasino/gopher.zone"
+    url  = "https://github.com/jamestomasino/gopher.zone/blob/master/README.md"
