@@ -6,10 +6,20 @@
     <description>Recent content on Highway to the Gopher Zone</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Fri, 21 Sep 2018 21:48:42 -0400</lastBuildDate>
+    <lastBuildDate>Fri, 21 Sep 2018 21:52:20 -0400</lastBuildDate>
     
 	<atom:link href="http://gopher.zone/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Tips for Publishing</title>
+      <link>http://gopher.zone/posts/tips-for-publishing/</link>
+      <pubDate>Fri, 21 Sep 2018 21:52:20 -0400</pubDate>
+      
+      <guid>http://gopher.zone/posts/tips-for-publishing/</guid>
+      <description>Originally published by bitreich at gopher://bitreich.org/0/tutorials/publishing-guideline.txt
+ This document will give you a few hints about publishing through gopher. Line length =========== The rendering of content is client specific. However most clients will present the user with a text based interface, so you should be conservative on the maximum line length in your menus. As clients will add a couple of characters to mark item types, a line width of 69 characters is recommended.</description>
+    </item>
     
     <item>
       <title>Tutorial for Absolute Beginners</title>
