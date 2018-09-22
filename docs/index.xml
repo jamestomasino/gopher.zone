@@ -6,13 +6,34 @@
     <description>Recent content on Highway to the Gopher Zone</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Fri, 21 Sep 2018 20:49:13 -0400</lastBuildDate>
+    <lastBuildDate>Fri, 21 Sep 2018 21:09:55 -0400</lastBuildDate>
     
 	<atom:link href="http://gopher.zone/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
-      <title>What Is Gopher</title>
+      <title>How to Gopher</title>
+      <link>http://gopher.zone/posts/how-to-gopher/</link>
+      <pubDate>Fri, 21 Sep 2018 21:09:55 -0400</pubDate>
+      
+      <guid>http://gopher.zone/posts/how-to-gopher/</guid>
+      <description>Originally published by dbucklin at gopher://sdf.org:70/0/users/dbucklin/posts/how_gopher.txt
+ From: dbucklin@sdf.org Date: 2018-03-31 Subject: How to Gopher In principal, publishing a Gopher site should be easy. And it *is* easy, assuming you are willing to put in some effort. At minimum, you need to find someone who is already operating a Gopher server, find out how to get access to the server, and then create, orga- nize, and upload your content. At most, you need to set up a gopher server -- not just the daemon, but set up a server or VPS with the appropriate operating system.</description>
+    </item>
+    
+    <item>
+      <title>How Can I Setup My Gopherspace</title>
+      <link>http://gopher.zone/posts/how-can-i-setup-my-gopherspace/</link>
+      <pubDate>Fri, 21 Sep 2018 21:01:08 -0400</pubDate>
+      
+      <guid>http://gopher.zone/posts/how-can-i-setup-my-gopherspace/</guid>
+      <description>Original published by SDF at gopher://sdf.org:70/1/sdf/faq/GOPHER
+The article in this content is specific to setting up a gopher hole on SDF (The Super Dimensional Fortress) Public Access Unix System. Visit sdf.org for more information on how to create an account.
+HOW CAN I SETUP MY GOPHERSPACE? This document was written with &amp;lsquo;mkgopher&amp;rsquo; in mind. You may be managing your space from the UNIX shell, but since &amp;lsquo;mkgopher&amp;rsquo; uses common UNIX commands, this should still be helpful.</description>
+    </item>
+    
+    <item>
+      <title>What Is Gopher and Gopherspace</title>
       <link>http://gopher.zone/posts/what-is-gopher/</link>
       <pubDate>Fri, 21 Sep 2018 20:49:13 -0400</pubDate>
       

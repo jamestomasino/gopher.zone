@@ -1,201 +1,438 @@
-
 <!DOCTYPE html>
 <html lang="en-us">
+  <head>
+	<meta name="generator" content="Hugo 0.47.1" />
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="MobileOptimized" content="320">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="referrer" content="no-referrer">
+    
 
-<head>
-<meta charset="utf-8" />
-<meta name="author" content="" />
-<meta name="description" content="" />
-<meta name="keywords" content="" />
-<meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1">
-<meta name="generator" content="Hugo 0.47.1" />
+    
+      <link href='https://fonts.googleapis.com/css?family=Open+Sans:400|Old+Standard+TT:400' rel='stylesheet' type='text/css'>
+    
 
-<link rel="canonical" href="http://gopher.zone/">
-<meta property="og:title" content="Highway to the Gopher Zone" />
-<meta property="og:description" content="" />
-<meta property="og:type" content="website" />
-<meta property="og:url" content="http://gopher.zone/" />
-<meta property="og:updated_time" content="2018-09-21T20:49:13-04:00"/>
-<meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="Highway to the Gopher Zone"/>
-<meta name="twitter:description" content=""/>
+    <link rel="icon" type="image/png" href="http://gopher.zone/favicon_16x16.png" sizes="16x16">
+    <link rel="icon" type="image/png" href="http://gopher.zone/favicon_32x32.png" sizes="32x32">
+    <link rel="icon" type="image/png" href="http://gopher.zone/favicon_128x128.png" sizes="128x128">
 
+    <title>
+      
+      
+         Highway to the Gopher Zone 
+      
+    </title>
+    <link rel="canonical" href="http://gopher.zone/">
 
+    <style>
+  * {
+    border:0;
+    font:inherit;
+    font-size:100%;
+    vertical-align:baseline;
+    margin:0;
+    padding:0;
+    color: black;
+    text-decoration-skip: ink;
+  }
 
-<meta itemprop="name" content="Highway to the Gopher Zone">
-<meta itemprop="description" content="">
+  body {
+    font-family:'Open Sans', 'Myriad Pro', Myriad, sans-serif;
+    font-size:17px;
+    line-height:160%;
+    color:#1d1313;
+    max-width:700px;
+    margin:auto;
+  }
 
+  p {
+    margin: 20px 0;
+  }
 
+  a img {
+    border:none;
+  }
 
-<link rel="stylesheet" href="/css/layout.css" />
-<style type="text/css">
-body {
-  background-color: <no value>;
-  color: <no value>;
-}
+  img {
+    margin: 10px auto 10px auto;
+    max-width: 100%;
+    display: block;
+  }
 
-a { color: <no value>; }
+  .left-justify {
+    float: left;
+  }
 
-pre {
-  background: <no value>;
-  border: 1px solid <no value>;
-  border-radius: 5px;
-}
+  .right-justify {
+    float:right;
+  }
 
-code {
-  background: <no value>;
-}
+  pre, code {
+    font: 12px Consolas, "Liberation Mono", Menlo, Courier, monospace;
+    background-color: #f7f7f7;
+  }
 
-blockquote {
-  background: <no value>;
-  border-left: 3px solid <no value>;
-}
+  code {
+    font-size: 12px;
+    padding: 4px;
+  }
 
-table {
-  margin: 1em auto;
-  border-collapse: collapse;
-}
+  pre {
+    margin-top: 0;
+    margin-bottom: 16px;
+    word-wrap: normal;
+    padding: 16px;
+    overflow: auto;
+    font-size: 85%;
+    line-height: 1.45;
+  }
 
-table, th, td {
-  border: 1px solid <no value>;
-}
+  pre>code {
+    padding: 0;
+    margin: 0;
+    font-size: 100%;
+    word-break: normal;
+    white-space: pre;
+    background: transparent;
+    border: 0;
+  }
 
-th {
-  background: <no value>;
-  color: <no value>;
-}
+  pre code {
+    display: inline;
+    max-width: auto;
+    padding: 0;
+    margin: 0;
+    overflow: visible;
+    line-height: inherit;
+    word-wrap: normal;
+    background-color: transparent;
+    border: 0;
+  }
 
-.siteTitle a { color: <no value>; }
+  pre code::before,
+  pre code::after {
+    content: normal;
+  }
 
-.post .content h1{ color: <no value>; }
-.post .content h2{ color: <no value>; }
-.post .content h3{ color: <no value>; }
-.post .content h4{ color: <no value>; }
-.post .content h5{ color: <no value>; }
-.post .content h6{ color: <no value>; }
-.post .content a:hover { color: <no value>; }
-.social-link:hover { color: <no value>; }
-.nav-item-title:hover { color: <no value>; }
-.tag a:hover { color: <no value>; }
-.copyright { color: <no value> }
-.poweredby { color: <no value> }
-.poweredby a { color: <no value>; }
-.post-preview .title a{ color: <no value>; }
-.content-item a:hover{
-  text-decoration: underline;
-  color: <no value>;
-}
-.post-list .title { color: <no value>; }
-.rmore { color: <no value>; }
-.terms .term a:hover {
-  text-decoration: underline;
-  color: <no value>;
-}
+  em,q,em,dfn {
+    font-style:italic;
+  }
 
+  .sans,html .gist .gist-file .gist-meta {
+    font-family:"Open Sans","Myriad Pro",Myriad,sans-serif;
+  }
+
+  .mono,pre,code,tt,p code,li code {
+    font-family:Menlo,Monaco,"Andale Mono","lucida console","Courier New",monospace;
+  }
+
+  .heading,.serif,h1,h2,h3 {
+    font-family:"Old Standard TT",serif;
+  }
+
+  strong {
+    font-weight:600;
+  }
+
+  q:before {
+    content:"\201C";
+  }
+
+  q:after {
+    content:"\201D";
+  }
+
+  del,s {
+    text-decoration:line-through;
+  }
+
+  blockquote {
+    font-family:"Old Standard TT",serif;
+    text-align:center;
+    padding:50px;
+  }
+
+  blockquote p {
+    display:inline-block;
+    font-style:italic;
+  }
+
+  blockquote:before,blockquote:after {
+    font-family:"Old Standard TT",serif;
+    content:'\201C';
+    font-size:35px;
+    color:#403c3b;
+  }
+
+  blockquote:after {
+    content:'\201D';
+  }
+
+  hr {
+    width:40%;
+    height: 1px;
+    background:#403c3b;
+    margin: 25px auto;
+  }
+
+  h1 {
+    font-size:35px;
+  }
+
+  h2 {
+    font-size:28px;
+  }
+
+  h3 {
+    font-size:22px;
+    margin-top:18px;
+  }
+
+  h1 a,h2 a,h3 a {
+    text-decoration:none;
+  }
+
+  h1,h2 {
+    margin-top:28px;
+  }
+
+  #sub-header, time {
+    color:#403c3b;
+    font-size:13px;
+  }
+
+  #sub-header {
+    margin: 0 4px;
+  }
+
+  #nav h1 a {
+    font-size:35px;
+    color:#1d1313;
+    line-height:120%;
+  }
+
+  .posts_listing a,#nav a {
+    text-decoration: none;
+  }
+
+  li {
+    margin-left: 20px;
+  }
+
+  ul li {
+    margin-left: 5px;
+  }
+
+  ul li {
+    list-style-type: none;
+  }
+  ul li:before {
+    content:"\00BB \0020";
+  }
+
+  #nav ul li:before, .posts_listing li:before {
+    content:'';
+    margin-right:0;
+  }
+
+  #content {
+    text-align:left;
+    width:100%;
+    font-size:15px;
+    padding:60px 0 80px;
+  }
+
+  #content h1,#content h2 {
+    margin-bottom:5px;
+  }
+
+  #content h2 {
+    font-size:25px;
+  }
+
+  #content .entry-content {
+    margin-top:15px;
+  }
+
+  #content time {
+    margin-left:3px;
+  }
+
+  #content h1 {
+    font-size:30px;
+  }
+
+  .highlight {
+    margin: 10px 0;
+  }
+
+  .posts_listing {
+    margin:0 0 50px;
+  }
+
+  .posts_listing li {
+    margin:0 0 25px 15px;
+  }
+
+  .posts_listing li a:hover,#nav a:hover {
+    text-decoration: underline;
+  }
+
+  #nav {
+    text-align:center;
+    position:static;
+    margin-top:60px;
+  }
+
+  #nav ul {
+    display: table;
+    margin: 8px auto 0 auto;
+  }
+
+  #nav li {
+    list-style-type:none;
+    display:table-cell;
+    font-size:15px;
+    padding: 0 20px;
+  }
+
+  #links {
+    margin: 50px 0 0 0;
+  }
+
+  #links :nth-child(2) {
+    float:right;
+  }
+
+  #not-found {
+    text-align: center;
+  }
+
+  #not-found a {
+    font-family:"Old Standard TT",serif;
+    font-size: 200px;
+    text-decoration: none;
+    display: inline-block;
+    padding-top: 225px;
+  }
+
+  @media (max-width: 750px) {
+    body {
+      padding-left:20px;
+      padding-right:20px;
+    }
+
+    #nav h1 a {
+      font-size:28px;
+    }
+
+    #nav li {
+      font-size:13px;
+      padding: 0 15px;
+    }
+
+    #content {
+      margin-top:0;
+      padding-top:50px;
+      font-size:14px;
+    }
+
+    #content h1 {
+      font-size:25px;
+    }
+
+    #content h2 {
+      font-size:22px;
+    }
+
+    .posts_listing li div {
+      font-size:12px;
+    }
+  }
+
+  @media (max-width: 400px) {
+    body {
+      padding-left:20px;
+      padding-right:20px;
+    }
+
+    #nav h1 a {
+      font-size:22px;
+    }
+
+    #nav li {
+      font-size:12px;
+      padding: 0 10px;
+    }
+
+    #content {
+      margin-top:0;
+      padding-top:20px;
+      font-size:12px;
+    }
+
+    #content h1 {
+      font-size:20px;
+    }
+
+    #content h2 {
+      font-size:18px;
+    }
+
+    .posts_listing li div{
+      font-size:12px;
+    }
+  }
 </style>
 
 
-
-<title>
-
-
-     Highway to the Gopher Zone 
-
-</title>
-
-</head>
-
-
-<body>
-<div class="main">
-<header>
-
-<div class="header-bar">
-
-  <nav>
-    <div class="siteTitle">
-      <a href="http://gopher.zone/">Highway to the Gopher Zone</a>
-    </div> 
-
     
+      <link href="http://gopher.zone/index.xml" rel="alternate" type="application/rss+xml" title="Highway to the Gopher Zone" />
     
+  </head>
 
-  </nav>
-</div>
-
-  
-<div class="social-links-header">
-
-  
-
-  
-
-  
-
-  
-
-  
-
-</div>
+  <body>
+    <section id=nav>
+      <h1><a href="http://gopher.zone/">Highway to the Gopher Zone</a></h1>
+      <ul>
+        
+          <li><a href="https://github.com/jamestomasino/gopher.zone">About</a></li>
+        
+      </ul>
+    </section>
 
 
-</header>
-
-
-<main>
-
-
-  
-
-
-<div class="page-nav">
-  <div class="page-prev">
+<section id=content>
+  <ul class=posts_listing>
     
-  </div> 
-
-  <div class="page-num">
-    1/0
-  </div> 
-
-  <div class="page-next">
+      <li>
+        <h2><a href="http://gopher.zone/posts/how-to-gopher/">How to Gopher</a></h2>
+        <div id=date>
+          <time>September 2018</time>
+        </div>
+      </li>
     
-  </div> 
-</div> 
-
-
-</main>
-
-  <footer>
-
-  <div class="social-links-footer">
+      <li>
+        <h2><a href="http://gopher.zone/posts/how-can-i-setup-my-gopherspace/">How Can I Setup My Gopherspace</a></h2>
+        <div id=date>
+          <time>September 2018</time>
+        </div>
+      </li>
+    
+      <li>
+        <h2><a href="http://gopher.zone/posts/what-is-gopher/">What Is Gopher and Gopherspace</a></h2>
+        <div id=date>
+          <time>September 2018</time>
+        </div>
+      </li>
+    
+  </ul>
+</section>
 
   
-
-  
-
-  
-
-  
-
-  
-
-  <div class="social-link">
-  <a href="http://gopher.zone/index.xml" target="_blank">RSS</a>
-  </div>
-
-</div>
-
-
-  <div class="copyright">  </div>
-
-  <div class="poweredby">
-    Powered by <a href="https://gohugo.io/">Hugo</a>.
-  </div>
-
-  </footer>
-
-</div> 
-
 </body>
 </html>
+
 
