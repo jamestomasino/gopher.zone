@@ -8,7 +8,6 @@ _gopher://bitreich.org/0/tutorials/publish-gophernicus.txt_
 
 - - - - -
 
-<pre>
 Gophernicus is quite fussy about permissions, to minimise the risk of
 accidentally serving files not intended for public consumptions.  Only
 world accessible content will be served, so chmod files o+r and
@@ -63,5 +62,4 @@ may be placed in any directory containing a "user friendly" name for
 that directory to be used in automatically generated listings (e.g.
 you could placed a gophertag file containing the text
 "Miscellaneous photographs" in the directory "misc_photos").
-</pre>
 

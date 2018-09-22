@@ -8,12 +8,10 @@ _gopher://bitreich.org/0/tutorials/publishing-guideline.txt_
 
 - - - - -
 
-<pre>
 This document will give you a few hints about publishing through
 gopher.
 
-Line length
-===========
+## Line length
 
 The rendering of content is client specific. However most clients
 will present the user with a text based interface, so you should be
@@ -21,8 +19,7 @@ conservative on the maximum line length in your menus. As clients
 will add a couple of characters to mark item types, a line width of
 69 characters is recommended.
 
-The menu
-========
+## The menu
 
 The main entry point and user interface between your readers and your
 content is the gopher menu item (item '1' as you may recall).  The
@@ -54,8 +51,7 @@ For starters you should stick to single file items to store your
 content. Once you gain more experience with publishing content in
 gopher you can always change your mind later!
 
-Selector hierarchy
-==================
+## Selector hierarchy
 
 By design a gopher site should present a hierarchy of content
 selectors to the user.  These mimick a file system by intention.
@@ -71,13 +67,11 @@ selectors in the menu files and rotates them. The post files however
 remain untouched and their selectors will not change over time.  This
 means that external links to her post will still be valid later.
 
-Site generators
-===============
+## Site generators
 
 The easiest creation of content is done manually. If you would like
 to automate some task then there are site generators. Most of these
 consists of a collection of shell scripts you can adapt to your
 needs. Search veronica for cl-yag or burrow for starters.
-</pre>
 
 <!--  vim: set shiftwidth=4 tabstop=4 expandtab: -->

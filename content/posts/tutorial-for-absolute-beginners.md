@@ -8,10 +8,9 @@ _gopher://bitreich.org/0/tutorials/beginners.txt_
 
 - - - - -
 
-<pre>
 Hello dear reader,
 
-if you have heard about gopher and want to explore its space but feel
+If you have heard about gopher and want to explore its space but feel
 lost about how to achieve that, this text is for you. We will assume
 that you have no technical skill so everyone can read this.
 
@@ -66,7 +65,6 @@ another type will lead to downloading a file.
 Now that you are ready to browse the gopher space, we recommend you to
 read the others tutorials about the gopher client software you would
 like to use.
-</pre>
 
 
 <!--  vim: set shiftwidth=4 tabstop=4 expandtab: -->
