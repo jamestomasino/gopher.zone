@@ -4,6 +4,7 @@ title = "Highway to the Gopher Zone"
 theme = "hugo-dusk"
 canonifyurls = true
 paginate = 3
+publishDir = "docs"
 
 [author]
   name = "James Tomasino"
