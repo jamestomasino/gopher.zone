@@ -1,39 +1,17 @@
 baseURL = "http://gopher.zone/"
-languageCode = "en-us"
-title = "Highway to the Gopher Zone"
-theme = "hugo-dusk"
 canonifyurls = true
-paginate = 3
+languageCode = "en-us"
 publishDir = "docs"
+theme = "black-and-light"
+title = "Highway to the Gopher Zone"
 
-[author]
-  name = "James Tomasino"
+pygmentsstyle       = "bw"
+pygmentscodefences  = true
+
+[params]
+  sitename = "Highway to the Gopher Zone"
+  disableWebFonts = false
 
 [[menu.main]]
-  name = "Posts"
-  weight = -120
-  identifier = "post"
-  url = "/post/"
-
-[[menu.main]]
-  name = "Tags"
-  weight = -110
-  identifier = "tag"
-  url = "/tags/"
-
-[params.meta]
-  keywords = "gopher, tech, command line, cli, retro"
-  description = "Introduction and advice for new users in gopher space"
-
-[params.colors]
-  # hugo-dusk colors
-  background = "#101010" # background color for the site
-  main = "#99cc66"
-  text = "#dbdbdb"
-  code-quote-bg = "#1D1F21" # background color for quotes and code blocks
-  copyright = "#404040" # copyright text color
-
-# use Chroma for syntax highlight
-pygmentsStyle = "native" # other dark style options: vim, fruity, monokai
-# enable syntax highlight for code blocks
-pygmentsCodeFences = true
+    name = "About"
+    url  = "https://github.com/jamestomasino/gopher.zone"
