@@ -6,10 +6,20 @@
     <description>Recent content on Highway to the Gopher Zone</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Fri, 21 Sep 2018 21:09:55 -0400</lastBuildDate>
+    <lastBuildDate>Fri, 21 Sep 2018 21:48:42 -0400</lastBuildDate>
     
 	<atom:link href="http://gopher.zone/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Tutorial for Absolute Beginners</title>
+      <link>http://gopher.zone/posts/tutorial-for-absolute-beginners/</link>
+      <pubDate>Fri, 21 Sep 2018 21:48:42 -0400</pubDate>
+      
+      <guid>http://gopher.zone/posts/tutorial-for-absolute-beginners/</guid>
+      <description>Originally published by bitreich.org at gopher://bitreich.org/0/tutorials/beginners.txt
+ Hello dear reader, if you have heard about gopher and want to explore its space but feel lost about how to achieve that, this text is for you. We will assume that you have no technical skill so everyone can read this. Gopher is the name of a protocol for sharing text, images or any kind of file. A network protocol is a set of rules which allow to create a common service for different people, everyone needing to respect thoses rules to be able to communicate with each other.</description>
+    </item>
     
     <item>
       <title>How to Gopher</title>

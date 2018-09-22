@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html lang="en-us">
   <head>
-	<meta name="generator" content="Hugo 0.47.1" />
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="chrome=1">
     <meta name="HandheldFriendly" content="True">
@@ -21,10 +20,10 @@
     <title>
       
       
-         Highway to the Gopher Zone 
+         Tutorial for Absolute Beginners 
       
     </title>
-    <link rel="canonical" href="http://gopher.zone/">
+    <link rel="canonical" href="http://gopher.zone/posts/tutorial-for-absolute-beginners/">
 
     <style>
   * {
@@ -389,8 +388,6 @@
 
 
     
-      <link href="http://gopher.zone/index.xml" rel="alternate" type="application/rss+xml" title="Highway to the Gopher Zone" />
-    
   </head>
 
   <body>
@@ -405,41 +402,95 @@
 
 
 <section id=content>
-  <ul class=posts_listing>
+  <h1> Tutorial for Absolute Beginners </h1>
+
+  
+    <div id=sub-header>
+      September 2018 · 3 minute read
+    </div>
+  
+
+  <div class="entry-content">
+    <p>Originally published by <strong>bitreich.org</strong> at
+<em>gopher://bitreich.org/0/tutorials/beginners.txt</em></p>
+
+<hr />
+
+<pre>
+Hello dear reader,
+
+if you have heard about gopher and want to explore its space but feel
+lost about how to achieve that, this text is for you. We will assume
+that you have no technical skill so everyone can read this.
+
+Gopher is the name of a protocol for sharing text, images or any kind
+of file. A network protocol is a set of rules which allow to create a
+common service for different people, everyone needing to respect
+thoses rules to be able to communicate with each other. Some people
+writing code (called Developers) will write "Clients" software for the
+end-user and others developers will write "Servers" software which
+will allow to publish content. The gopher protocol is so simple that
+anyone with basic knowledge of computer science can write its own
+client or server easily. Using gopher implies to understand the
+protocol itself, but we promise it's really easy.
+
+Gopher is an enjoyable way to browse informations. Every gopherhole
+[that is the name given to someone's gopher content] looks like
+another one. There is no way to customize a gopherhole display except
+from the text. While this can look a bit harsh, this makes gopher
+universal. If you know how to browse one gopherhole, you will know how
+to browse all others because the way to do it is consistent.
+
+So, let's speak about how gopher works. First, gopher requires 3
+informations if you want to get content. You will need a remote
+address to connect to [it's called an hostname, like "floodgap.com"],
+the data type and a path to the data. The url looks like this :
+
+    gopher://hostname/type/path
+
+The most important type is the type 1, which is the gopher menu
+type. A gopher menu is an index made of differents lines, each line
+having a type field to know what kind of data it leads to. It will
+allow you to browse from menu to menu or from a menu to a content
+(image, text, music, archives...).
+
+Here is the list of the most used data types allowed on gopher, the
+complete list is defined in a document named RFC 1436 which defines
+the gopher protocol :
+
+- type i is a line of text in the menu, it's not a link
+- type 0 is a link to a text document
+- type 1 is a link to another gopher menu
+- type 3 means an error
+- type 7 (search) asks a text input and lead to another menu
+- type 9 is a link to a binary file (data archives, music...)
+- type g is a link to a GIF file (animated picture)
+- type I is a link to an image file
+- type h is a link which lead to use another protocol (irc, http...)
+
+Only the types menu and search can lead to another content. Asking
+another type will lead to downloading a file.
+
+Now that you are ready to browse the gopher space, we recommend you to
+read the others tutorials about the gopher client software you would
+like to use.
+</pre>
+
+<!--  vim: set shiftwidth=4 tabstop=4 expandtab: -->
+
+  </div>
+
+  <div id=links>
     
-      <li>
-        <h2><a href="http://gopher.zone/posts/tutorial-for-absolute-beginners/">Tutorial for Absolute Beginners</a></h2>
-        <div id=date>
-          <time>September 2018</time>
-        </div>
-      </li>
+      <a class="basic-alignment left" href="http://gopher.zone/posts/how-to-gopher/">&laquo; How to Gopher</a>
     
-      <li>
-        <h2><a href="http://gopher.zone/posts/how-to-gopher/">How to Gopher</a></h2>
-        <div id=date>
-          <time>September 2018</time>
-        </div>
-      </li>
     
-      <li>
-        <h2><a href="http://gopher.zone/posts/how-can-i-setup-my-gopherspace/">How Can I Setup My Gopherspace</a></h2>
-        <div id=date>
-          <time>September 2018</time>
-        </div>
-      </li>
-    
-      <li>
-        <h2><a href="http://gopher.zone/posts/what-is-gopher/">What Is Gopher and Gopherspace</a></h2>
-        <div id=date>
-          <time>September 2018</time>
-        </div>
-      </li>
-    
-  </ul>
+  </div>
 </section>
 
   
 </body>
 </html>
+
 
 
