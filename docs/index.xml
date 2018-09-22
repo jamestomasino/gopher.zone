@@ -63,7 +63,7 @@ Gopher is the name of a protocol for sharing text, images or any kind of file. A
       <guid>http://gopher.zone/posts/how-can-i-setup-my-gopherspace/</guid>
       <description>Original published by SDF at gopher://sdf.org:70/1/sdf/faq/GOPHER
 The article in this content is specific to setting up a gopher hole on SDF (The Super Dimensional Fortress) Public Access Unix System. Visit sdf.org for more information on how to create an account.
-HOW CAN I SETUP MY GOPHERSPACE? This document was written with &amp;lsquo;mkgopher&amp;rsquo; in mind. You may be managing your space from the UNIX shell, but since &amp;lsquo;mkgopher&amp;rsquo; uses common UNIX commands, this should still be helpful.</description>
+This document was written with &amp;lsquo;mkgopher&amp;rsquo; in mind. You may be managing your space from the UNIX shell, but since &amp;lsquo;mkgopher&amp;rsquo; uses common UNIX commands, this should still be helpful.</description>
     </item>
     
     <item>
@@ -73,7 +73,7 @@ HOW CAN I SETUP MY GOPHERSPACE? This document was written with &amp;lsquo;mkgoph
       
       <guid>http://gopher.zone/posts/what-is-gopher/</guid>
       <description>Original published by SDF at gopher://sdf.org:70/1/sdf/faq/GOPHER
-WHAT IS GOPHER AND GOPHERSPACE? GOPHER is a network protocol that enables multiple servers to create a single, uniform filesystem that transcends system architecure and operating systems (GOPHERSPACE). With GOPHER, information holds the most value. Since presentation is uniform across GOPHERSPACE, the user does not encounter any challenges in &amp;lsquo;learning&amp;rsquo; a new site. Because of its simplicity and its emphasis on the importance of informational texts, GOPHER is ideal for those who are visually impared.</description>
+GOPHER is a network protocol that enables multiple servers to create a single, uniform filesystem that transcends system architecure and operating systems (GOPHERSPACE). With GOPHER, information holds the most value. Since presentation is uniform across GOPHERSPACE, the user does not encounter any challenges in &amp;lsquo;learning&amp;rsquo; a new site. Because of its simplicity and its emphasis on the importance of informational texts, GOPHER is ideal for those who are visually impared.</description>
     </item>
     
   </channel>

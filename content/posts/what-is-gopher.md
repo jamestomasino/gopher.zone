@@ -7,8 +7,6 @@ Original published by **SDF** at _gopher://sdf.org:70/1/sdf/faq/GOPHER_
 
 - - - - -
 
-# WHAT IS GOPHER AND GOPHERSPACE?
-
 GOPHER is a network protocol that enables multiple servers
 to create a single, uniform filesystem that transcends system
 architecure and operating systems (GOPHERSPACE).  With GOPHER,

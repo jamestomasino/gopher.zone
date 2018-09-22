@@ -11,8 +11,6 @@ Visit [sdf.org][] for more information on how to create an account.
 
 - - - - -
 
-# HOW CAN I SETUP MY GOPHERSPACE?
-
 This document was written with 'mkgopher' in mind.  You may be
 managing your space from the UNIX shell, but since 'mkgopher'
 uses common UNIX commands, this should still be helpful.
