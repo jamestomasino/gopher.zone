@@ -6,10 +6,20 @@
     <description>Recent content in Posts on Highway to the Gopher Zone</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Fri, 21 Sep 2018 22:04:44 -0400</lastBuildDate>
+    <lastBuildDate>Fri, 02 Nov 2018 17:19:19 -0400</lastBuildDate>
     
 	<atom:link href="http://gopher.zone/posts/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>How to gophermap</title>
+      <link>http://gopher.zone/posts/how-to-gophermap/</link>
+      <pubDate>Fri, 02 Nov 2018 17:19:19 -0400</pubDate>
+      
+      <guid>http://gopher.zone/posts/how-to-gophermap/</guid>
+      <description>Originally published by cat at gopher://baud.baby/0/phlog/fs20181102.txt
+ 2018-11-02 / \/ \/ / \ / __/ /_ _/ A common question I get about baud.baby / _/ / / is &#34;How did you do that?&#34; and it always \_______/_\___/____/\___/____/_ mystifies me because nothing I do is / \/ \/ / \ difficult so let me coach you on the basics / _/ /_ _/ of gophermap-fu. Let me just preface this /- / _/ / with my usual rant: Gopher is not a pretty \________/\________/\___/____/ protocol, it can be beautified somewhat but at its heart Gopher is about delivering content.</description>
+    </item>
     
     <item>
       <title>What Makes Gopher Special</title>
