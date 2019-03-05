@@ -18,6 +18,18 @@ Links on the web and in gopher can disappear, so this
 repository/blog chooses to replicate the content rather than link
 to it.
 
+## Build from Source
+
+This repo uses submodules for the theme. To properly clone the
+repository you should run:
+
+    git clone --recurse-submodules <path to repo>
+
+You'll need to install `hugo` to build the project, but once done
+you can run the local testing server as so:
+
+    make serve
+
 ## Copyright
 
 If your content is duplicated/linked to here and you don't want it
