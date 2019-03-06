@@ -3,6 +3,11 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>http://gopher.zone/posts/running-a-gopher-server-in-2018/</loc>
+    <lastmod>2019-03-05T18:46:58-05:00</lastmod>
+  </url>
+  
+  <url>
     <loc>http://gopher.zone/posts/how-to-gophermap/</loc>
     <lastmod>2018-11-02T17:19:19-04:00</lastmod>
   </url>
@@ -49,7 +54,7 @@
   
   <url>
     <loc>http://gopher.zone/</loc>
-    <lastmod>2018-11-02T17:19:19-04:00</lastmod>
+    <lastmod>2019-03-05T18:46:58-05:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -61,7 +66,7 @@
   
   <url>
     <loc>http://gopher.zone/posts/</loc>
-    <lastmod>2018-11-02T17:19:19-04:00</lastmod>
+    <lastmod>2019-03-05T18:46:58-05:00</lastmod>
     <priority>0</priority>
   </url>
   

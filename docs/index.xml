@@ -6,10 +6,21 @@
     <description>Recent content on Highway to the Gopher Zone</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Fri, 02 Nov 2018 17:19:19 -0400</lastBuildDate>
+    <lastBuildDate>Tue, 05 Mar 2019 18:46:58 -0500</lastBuildDate>
     
 	<atom:link href="http://gopher.zone/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Running a Gopher Server in 2018</title>
+      <link>http://gopher.zone/posts/running-a-gopher-server-in-2018/</link>
+      <pubDate>Tue, 05 Mar 2019 18:46:58 -0500</pubDate>
+      
+      <guid>http://gopher.zone/posts/running-a-gopher-server-in-2018/</guid>
+      <description>Original published by Paul Scott at prgmr.com
+If you read the History of Gopher then you might want to make your own server. The process isn’t complicated, thanks to an application called Pygopherd. You will need a Linux machine or virtual machine (this article uses Ubuntu) with Python installed (default on most modern distros). There are just a few steps to follow.
+Step 1: Make sure that pygopherd is in your repositories.</description>
+    </item>
     
     <item>
       <title>How to gophermap</title>

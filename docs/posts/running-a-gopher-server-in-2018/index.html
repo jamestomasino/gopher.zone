@@ -1,0 +1,595 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="MobileOptimized" content="320">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="referrer" content="no-referrer">
+    
+
+    
+      <link href='https://fonts.googleapis.com/css?family=Open+Sans:400|Old+Standard+TT:400' rel='stylesheet' type='text/css'>
+    
+
+    <link rel="icon" type="image/png" href="http://gopher.zone/favicon_16x16.png" sizes="16x16">
+    <link rel="icon" type="image/png" href="http://gopher.zone/favicon_32x32.png" sizes="32x32">
+    <link rel="icon" type="image/png" href="http://gopher.zone/favicon_128x128.png" sizes="128x128">
+
+    <title>
+      
+      
+         Running a Gopher Server in 2018 
+      
+    </title>
+    <link rel="canonical" href="http://gopher.zone/posts/running-a-gopher-server-in-2018/">
+
+    <style>
+  * {
+    border:0;
+    font:inherit;
+    font-size:100%;
+    vertical-align:baseline;
+    margin:0;
+    padding:0;
+    color: black;
+    text-decoration-skip: ink;
+  }
+
+  body {
+    font-family:'Open Sans', 'Myriad Pro', Myriad, sans-serif;
+    font-size:17px;
+    line-height:160%;
+    color:#1d1313;
+    max-width:700px;
+    margin:auto;
+  }
+
+  p {
+    margin: 20px 0;
+  }
+
+  a img {
+    border:none;
+  }
+
+  img {
+    margin: 10px auto 10px auto;
+    max-width: 100%;
+    display: block;
+  }
+
+  .left-justify {
+    float: left;
+  }
+
+  .right-justify {
+    float:right;
+  }
+
+  pre, code {
+    font: 12px Consolas, "Liberation Mono", Menlo, Courier, monospace;
+    background-color: #f7f7f7;
+  }
+
+  code {
+    font-size: 12px;
+    padding: 4px;
+  }
+
+  pre {
+    margin-top: 0;
+    margin-bottom: 16px;
+    word-wrap: normal;
+    padding: 16px;
+    overflow: auto;
+    font-size: 85%;
+    line-height: 1.45;
+  }
+
+  pre>code {
+    padding: 0;
+    margin: 0;
+    font-size: 100%;
+    word-break: normal;
+    white-space: pre;
+    background: transparent;
+    border: 0;
+  }
+
+  pre code {
+    display: inline;
+    max-width: auto;
+    padding: 0;
+    margin: 0;
+    overflow: visible;
+    line-height: inherit;
+    word-wrap: normal;
+    background-color: transparent;
+    border: 0;
+  }
+
+  pre code::before,
+  pre code::after {
+    content: normal;
+  }
+
+  em,q,em,dfn {
+    font-style:italic;
+  }
+
+  .sans,html .gist .gist-file .gist-meta {
+    font-family:"Open Sans","Myriad Pro",Myriad,sans-serif;
+  }
+
+  .mono,pre,code,tt,p code,li code {
+    font-family:Menlo,Monaco,"Andale Mono","lucida console","Courier New",monospace;
+  }
+
+  .heading,.serif,h1,h2,h3 {
+    font-family:"Old Standard TT",serif;
+  }
+
+  strong {
+    font-weight:600;
+  }
+
+  q:before {
+    content:"\201C";
+  }
+
+  q:after {
+    content:"\201D";
+  }
+
+  del,s {
+    text-decoration:line-through;
+  }
+
+  blockquote {
+    font-family:"Old Standard TT",serif;
+    text-align:center;
+    padding:50px;
+  }
+
+  blockquote p {
+    display:inline-block;
+    font-style:italic;
+  }
+
+  blockquote:before,blockquote:after {
+    font-family:"Old Standard TT",serif;
+    content:'\201C';
+    font-size:35px;
+    color:#403c3b;
+  }
+
+  blockquote:after {
+    content:'\201D';
+  }
+
+  hr {
+    width:40%;
+    height: 1px;
+    background:#403c3b;
+    margin: 25px auto;
+  }
+
+  h1 {
+    font-size:35px;
+  }
+
+  h2 {
+    font-size:28px;
+  }
+
+  h3 {
+    font-size:22px;
+    margin-top:18px;
+  }
+
+  h1 a,h2 a,h3 a {
+    text-decoration:none;
+  }
+
+  h1,h2 {
+    margin-top:28px;
+  }
+
+  #sub-header, time {
+    color:#403c3b;
+    font-size:13px;
+  }
+
+  #sub-header {
+    margin: 0 4px;
+  }
+
+  #nav h1 a {
+    font-size:35px;
+    color:#1d1313;
+    line-height:120%;
+  }
+
+  .posts_listing a,#nav a {
+    text-decoration: none;
+  }
+
+  li {
+    margin-left: 20px;
+  }
+
+  ul li {
+    margin-left: 5px;
+  }
+
+  ul li {
+    list-style-type: none;
+  }
+  ul li:before {
+    content:"\00BB \0020";
+  }
+
+  #nav ul li:before, .posts_listing li:before {
+    content:'';
+    margin-right:0;
+  }
+
+  #content {
+    text-align:left;
+    width:100%;
+    font-size:15px;
+    padding:60px 0 80px;
+  }
+
+  #content h1,#content h2 {
+    margin-bottom:5px;
+  }
+
+  #content h2 {
+    font-size:25px;
+  }
+
+  #content .entry-content {
+    margin-top:15px;
+  }
+
+  #content time {
+    margin-left:3px;
+  }
+
+  #content h1 {
+    font-size:30px;
+  }
+
+  .highlight {
+    margin: 10px 0;
+  }
+
+  .posts_listing {
+    margin:0 0 50px;
+  }
+
+  .posts_listing li {
+    margin:0 0 25px 15px;
+  }
+
+  .posts_listing li a:hover,#nav a:hover {
+    text-decoration: underline;
+  }
+
+  #nav {
+    text-align:center;
+    position:static;
+    margin-top:60px;
+  }
+
+  #nav ul {
+    display: table;
+    margin: 8px auto 0 auto;
+  }
+
+  #nav li {
+    list-style-type:none;
+    display:table-cell;
+    font-size:15px;
+    padding: 0 20px;
+  }
+
+  #links {
+    margin: 50px 0 0 0;
+  }
+
+  #links :nth-child(2) {
+    float:right;
+  }
+
+  #not-found {
+    text-align: center;
+  }
+
+  #not-found a {
+    font-family:"Old Standard TT",serif;
+    font-size: 200px;
+    text-decoration: none;
+    display: inline-block;
+    padding-top: 225px;
+  }
+
+  @media (max-width: 750px) {
+    body {
+      padding-left:20px;
+      padding-right:20px;
+    }
+
+    #nav h1 a {
+      font-size:28px;
+    }
+
+    #nav li {
+      font-size:13px;
+      padding: 0 15px;
+    }
+
+    #content {
+      margin-top:0;
+      padding-top:50px;
+      font-size:14px;
+    }
+
+    #content h1 {
+      font-size:25px;
+    }
+
+    #content h2 {
+      font-size:22px;
+    }
+
+    .posts_listing li div {
+      font-size:12px;
+    }
+  }
+
+  @media (max-width: 400px) {
+    body {
+      padding-left:20px;
+      padding-right:20px;
+    }
+
+    #nav h1 a {
+      font-size:22px;
+    }
+
+    #nav li {
+      font-size:12px;
+      padding: 0 10px;
+    }
+
+    #content {
+      margin-top:0;
+      padding-top:20px;
+      font-size:12px;
+    }
+
+    #content h1 {
+      font-size:20px;
+    }
+
+    #content h2 {
+      font-size:18px;
+    }
+
+    .posts_listing li div{
+      font-size:12px;
+    }
+  }
+</style>
+
+
+    
+  </head>
+
+  <body>
+    <section id=nav>
+      <h1><a href="http://gopher.zone/">Highway to the Gopher Zone</a></h1>
+      <ul>
+        
+          <li><a href="https://github.com/jamestomasino/gopher.zone/blob/master/README.md">About</a></li>
+        
+      </ul>
+    </section>
+
+
+<section id=content>
+  <h1> Running a Gopher Server in 2018 </h1>
+
+  
+    <div id=sub-header>
+      March 2019 · 5 minute read
+    </div>
+  
+
+  <div class="entry-content">
+    
+
+<p>Original published by <strong>Paul Scott</strong> at
+<em><a href="https://prgmr.com/blog/gopher/2018/11/09/setting-up-gopherserver.html">prgmr.com</a></em></p>
+
+<hr />
+
+<p>If you read the History of Gopher then you might want to make your own server.
+The process isn’t complicated, thanks to an application called Pygopherd. You
+will need a Linux machine or virtual machine (this article uses Ubuntu) with
+Python installed (default on most modern distros). There are just a few steps
+to follow.</p>
+
+<h2 id="step-1-make-sure-that-pygopherd-is-in-your-repositories">Step 1: Make sure that pygopherd is in your repositories.</h2>
+
+<pre><code>$ apt-cache search pygopherd
+</code></pre>
+
+<h2 id="step-2-install-pygopherd">Step 2: Install pygopherd</h2>
+
+<pre><code>$ sudo apt-get install pygopherd
+</code></pre>
+
+<h2 id="step-3-configure-pygopherd">Step 3: Configure pygopherd</h2>
+
+<p>Open /etc/pygopherd/pygopherd.conf in your favorite editor. The config file is
+well-commented and mostly self-explanatory. The most critical change is the
+name of your server, which allows a gopher client to find your server. In your
+text editor find “servername” and configure:</p>
+
+<pre><code>servername = &lt;IP or Domain&gt;
+</code></pre>
+
+<p>Your IP address is available in /etc/network/interfaces.</p>
+
+<h2 id="step-4-set-up-the-server">Step 4: Set up the server</h2>
+
+<h3 id="stop-start-and-restart-your-gopher-server">Stop, start, and restart your gopher server</h3>
+
+<p>Your gopher server is up by default. Start/stop/restart the service using:</p>
+
+<pre><code>$ sudo /etc/init.d/pygopherd start
+$ sudo /etc/init.d/pygopherd stop
+$ sudo /etc/init.d/pygopherd restart
+</code></pre>
+
+<h3 id="change-your-default-gopher-directory">Change your default gopher directory</h3>
+
+<p>By default, the directory where your gopher-related files are stored is
+/var/gopher. To change this directory open up pygopherd.config and edit the
+setting root=/var/gopher (located around line 120 in the config file) to your
+desired directory. Don’t forget to add a gophermap to the new directory. (For
+more about gophermaps, see next.)</p>
+
+<h2 id="step-5-configure-the-gophermap-and-add-content">Step 5: Configure the gophermap and Add Content</h2>
+
+<p>Your gophermap is an index for each folder in your gopherhole.</p>
+
+<p>Technically, a folder doesn’t need a gophermap. However the gophermap file can
+be quite useful. It gives you more control over the structure of your
+gopherhole, lets you add links and text to your pages.</p>
+
+<p>With a gophermap your server will appear as a list of files and links, with
+comments and other information that you might choose to add. Without the
+gophermap your server will appear as a raw list of files and folders, navigable
+in a gopher client but with less information for your users.</p>
+
+<p>If you choose NOT to use a gophermap then you must delete the default gophermap
+file. A gopher client will look for the gophermap by default and if it’s there
+then it will override the other content in your folder. If you do use
+a gophermap then you will have to update it every time you add or delete
+content from the folder.</p>
+
+<h3 id="gophermap-file-syntax">Gophermap file syntax</h3>
+
+<p>In a Gopher menu&rsquo;s source code, a one-character code indicates what kind of
+content the client should expect. This code may either be a digit or a letter
+of the alphabet; letters are case-sensitive.</p>
+
+<p>RFC 1436, the Gopher technical spec, defines 14 item types. Type 3 is an error
+code for exception handling. Gopher client authors improvised item types
+h (HTML), i (informational message), and s (sound file) after the publication
+of RFC 1436.</p>
+
+<pre><code>Canonical Types
+0   Text File
+1   Gopher submenu or link to another gopher server
+2   CCSO Nameserver
+3   Error code returned by a Gopher server to indicate failure
+4   BinHex-encoded file (primarily for Macintosh computers)
+5   DOS file
+6   uuencoded file
+7   Gopher full-text search
+8   Telnet
+9   Binary file
++   Mirror or alternate server (for load balancing or in case of primary server downtime)
+g   GIF file
+I   Image file
+T   Telnet 3270
+Non-Canonical Types
+h   HTML file
+i   Informational message
+s   Sound file
+</code></pre>
+
+<p>To set up a very basic gopherhole, you need only three item types:
+i (informational message), 1 (link or subdirectory), and 0 (text file). Edit
+the gophermap file at</p>
+
+<pre><code>/var/gopher/gophermap
+</code></pre>
+
+<p>A gophermap is formatted as a set of lines, one for each item, using
+tab-delimited fields with the following syntax:</p>
+
+<pre><code>Tlabel&lt;tab&gt;path&lt;tab&gt;host&lt;tab&gt;port
+
+Where:
+T      The item type code (e.g. 1, 0, i)
+label  A human-readable label for this item (e.g. Books, Movies)
+path   The relative path to the target file
+host   The hostname of the target gopher server
+port   The port that the gopher server is listening on (usually 70)
+       A literal tab character (ASCII character 9)
+</code></pre>
+
+<p>Note that there is no space or tab between the item type and the label.</p>
+
+<p>You can omit the host and port fields if your items are on the same server as
+the gophermap. You can omit everything but the item type and label for
+informational items.</p>
+
+<p>So suppose you use the default setup of /var/gopher as your home folder for
+content and your main gophermap. In that folder you have the gophermap; an
+“AboutMe” file and three subfolders for a blog, movie reviews and vacation
+photos.</p>
+
+<p>The main gophermap might look like this, with informational items to explain
+each folder.</p>
+
+<pre><code>iWelcome to my Gopherhole!
+i
+0A little bit about me.&lt;tab&gt;about.txt
+i
+iHere's my Blog, &quot;The Technical Technical Writer&quot;.
+1Blog&lt;tab&gt;blog
+i
+iReviews of some of my favorite movies.
+1Reviews&lt;tab&gt;movies
+i
+iPics from my vacation in San Diego
+1Vacation Photos&lt;tab&gt;vacation
+</code></pre>
+
+<p>Each of the subfolders (blog, movies, and vacation) will have its own
+gophermap. The blog and movie reviews will be text files (item type 0), while
+the vacation photos will be image files (item type I).</p>
+
+<h3 id="add-content">Add content</h3>
+
+<p>This is the simplest part of setting up your gopherhole. To add content just
+add files and folders to your gopher home folder and/or subfolders. Update your
+gophermaps (if you have them) and you’re off!</p>
+
+<!--  vim: set shiftwidth=4 tabstop=4 expandtab: -->
+
+  </div>
+
+  <div id=links>
+    
+      <a class="basic-alignment left" href="http://gopher.zone/posts/how-to-gophermap/">&laquo; How to gophermap</a>
+    
+    
+  </div>
+</section>
+
+  
+</body>
+</html>
+
+
+
