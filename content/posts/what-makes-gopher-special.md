@@ -19,8 +19,8 @@ It is simple: There are no fancy frameworks to learn, the programs
 needed to run for hosting gopher yourself is tiny compared to other
 things on the internet.
 
-Because it is simple and way off the mainstream it envourages a do
-it yourself attitude. Almost noone is a consumer of some 'publishing'
+Because it is simple and way off the mainstream it encourages a do
+it yourself attitude. Almost nobody is a consumer of some 'publishing'
 platform, everyone is making it up as they go. And for the people
 that keep on using it you can see a lot of unique and different
 styles in creating and presenting content.
