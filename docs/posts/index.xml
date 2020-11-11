@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Posts on Highway to the Gopher Zone</title>
@@ -18,7 +18,7 @@
       
       <guid>http://gopher.zone/posts/running-a-gopher-server-in-2018/</guid>
       <description>Original published by Paul Scott at prgmr.com
-If you read the History of Gopher then you might want to make your own server. The process isn’t complicated, thanks to an application called Pygopherd. You will need a Linux machine or virtual machine (this article uses Ubuntu) with Python installed (default on most modern distros). There are just a few steps to follow.
+ If you read the History of Gopher then you might want to make your own server. The process isn’t complicated, thanks to an application called Pygopherd. You will need a Linux machine or virtual machine (this article uses Ubuntu) with Python installed (default on most modern distros). There are just a few steps to follow.
 Step 1: Make sure that pygopherd is in your repositories.</description>
     </item>
     
@@ -29,7 +29,7 @@ Step 1: Make sure that pygopherd is in your repositories.</description>
       
       <guid>http://gopher.zone/posts/how-to-gophermap/</guid>
       <description>Originally published by cat at gopher://baud.baby/0/phlog/fs20181102.txt
- 2018-11-02 / \/ \/ / \ / __/ /_ _/ A common question I get about baud.baby / _/ / / is &#34;How did you do that?&#34; and it always \_______/_\___/____/\___/____/_ mystifies me because nothing I do is / \/ \/ / \ difficult so let me coach you on the basics / _/ /_ _/ of gophermap-fu. Let me just preface this /- / _/ / with my usual rant: Gopher is not a pretty \________/\________/\___/____/ protocol, it can be beautified somewhat but at its heart Gopher is about delivering content.</description>
+ </description>
     </item>
     
     <item>
@@ -39,7 +39,7 @@ Step 1: Make sure that pygopherd is in your repositories.</description>
       
       <guid>http://gopher.zone/posts/what-makes-gopher-special/</guid>
       <description>This is a collection of posts about what makes gopher special.
-Originally published by ckeen at gopher://vernunftzentrum.de/0/ckeen/phlog/2018-03-05-What-makes-gopher-special-for-me.md
+ Originally published by ckeen at gopher://vernunftzentrum.de/0/ckeen/phlog/2018-03-05-What-makes-gopher-special-for-me.md
 Sean Tilly (someone I don&amp;rsquo;t know yet) has asked on mastodon about the recurring mentions of gopher and what&amp;rsquo;s so special about it. This got me thinking and these are my reasons why I think gopher is interesting:
 It is simple: There are no fancy frameworks to learn, the programs needed to run for hosting gopher yourself is tiny compared to other things on the internet.</description>
     </item>
@@ -51,7 +51,7 @@ It is simple: There are no fancy frameworks to learn, the programs needed to run
       
       <guid>http://gopher.zone/posts/publishing-on-gophernicus/</guid>
       <description>Originally published by bitreich.org at gopher://bitreich.org/0/tutorials/publish-gophernicus.txt
-Gophernicus is quite fussy about permissions, to minimise the risk of accidentally serving files not intended for public consumptions. Only world accessible content will be served, so chmod files o+r and directories o+rw. This is a common cause of confusion and frustration for beginners.
+ Gophernicus is quite fussy about permissions, to minimise the risk of accidentally serving files not intended for public consumptions. Only world accessible content will be served, so chmod files o+r and directories o+rw. This is a common cause of confusion and frustration for beginners.
 Gophernicus supports so-called &amp;ldquo;personal gopherspaces&amp;rdquo;. If a user &amp;ldquo;bob&amp;rdquo; has a directory named &amp;ldquo;public_gopher&amp;rdquo; in their home directory, then the file /home/bob/public_gopher/foo/bar/baz.</description>
     </item>
     
@@ -62,7 +62,7 @@ Gophernicus supports so-called &amp;ldquo;personal gopherspaces&amp;rdquo;. If a
       
       <guid>http://gopher.zone/posts/tips-for-publishing/</guid>
       <description>Originally published by bitreich at gopher://bitreich.org/0/tutorials/publishing-guideline.txt
-This document will give you a few hints about publishing through gopher.
+ This document will give you a few hints about publishing through gopher.
 Line length The rendering of content is client specific. However most clients will present the user with a text based interface, so you should be conservative on the maximum line length in your menus. As clients will add a couple of characters to mark item types, a line width of 69 characters is recommended.</description>
     </item>
     
@@ -73,7 +73,7 @@ Line length The rendering of content is client specific. However most clients wi
       
       <guid>http://gopher.zone/posts/tutorial-for-absolute-beginners/</guid>
       <description>Originally published by bitreich.org at gopher://bitreich.org/0/tutorials/beginners.txt
-Hello dear reader,
+ Hello dear reader,
 If you have heard about gopher and want to explore its space but feel lost about how to achieve that, this text is for you. We will assume that you have no technical skill so everyone can read this.
 Gopher is the name of a protocol for sharing text, images or any kind of file. A network protocol is a set of rules which allow to create a common service for different people, everyone needing to respect thoses rules to be able to communicate with each other.</description>
     </item>
@@ -85,7 +85,7 @@ Gopher is the name of a protocol for sharing text, images or any kind of file. A
       
       <guid>http://gopher.zone/posts/how-to-gopher/</guid>
       <description>Originally published by dbucklin at gopher://sdf.org:70/0/users/dbucklin/posts/how_gopher.txt
- From: dbucklin@sdf.org Date: 2018-03-31 Subject: How to Gopher In principal, publishing a Gopher site should be easy. And it *is* easy, assuming you are willing to put in some effort. At minimum, you need to find someone who is already operating a Gopher server, find out how to get access to the server, and then create, orga- nize, and upload your content. At most, you need to set up a gopher server -- not just the daemon, but set up a server or VPS with the appropriate operating system.</description>
+ </description>
     </item>
     
     <item>
@@ -96,7 +96,7 @@ Gopher is the name of a protocol for sharing text, images or any kind of file. A
       <guid>http://gopher.zone/posts/how-can-i-setup-my-gopherspace/</guid>
       <description>Original published by SDF at gopher://sdf.org:70/1/sdf/faq/GOPHER
 The article in this content is specific to setting up a gopher hole on SDF (The Super Dimensional Fortress) Public Access Unix System. Visit sdf.org for more information on how to create an account.
-This document was written with &amp;lsquo;mkgopher&amp;rsquo; in mind. You may be managing your space from the UNIX shell, but since &amp;lsquo;mkgopher&amp;rsquo; uses common UNIX commands, this should still be helpful.</description>
+ This document was written with &amp;lsquo;mkgopher&amp;rsquo; in mind. You may be managing your space from the UNIX shell, but since &amp;lsquo;mkgopher&amp;rsquo; uses common UNIX commands, this should still be helpful.</description>
     </item>
     
     <item>
@@ -106,7 +106,7 @@ This document was written with &amp;lsquo;mkgopher&amp;rsquo; in mind. You may b
       
       <guid>http://gopher.zone/posts/what-is-gopher/</guid>
       <description>Original published by SDF at gopher://sdf.org:70/1/sdf/faq/GOPHER
-GOPHER is a network protocol that enables multiple servers to create a single, uniform filesystem that transcends system architecure and operating systems (GOPHERSPACE). With GOPHER, information holds the most value. Since presentation is uniform across GOPHERSPACE, the user does not encounter any challenges in &amp;lsquo;learning&amp;rsquo; a new site. Because of its simplicity and its emphasis on the importance of informational texts, GOPHER is ideal for those who are visually impared.</description>
+ GOPHER is a network protocol that enables multiple servers to create a single, uniform filesystem that transcends system architecure and operating systems (GOPHERSPACE). With GOPHER, information holds the most value. Since presentation is uniform across GOPHERSPACE, the user does not encounter any challenges in &amp;lsquo;learning&amp;rsquo; a new site. Because of its simplicity and its emphasis on the importance of informational texts, GOPHER is ideal for those who are visually impared.</description>
     </item>
     
   </channel>
