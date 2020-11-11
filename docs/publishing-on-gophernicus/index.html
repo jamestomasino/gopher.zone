@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Publishing on gophernicus</title>
+    
+    
+    <link rel="webmention" href="https://webmention.io/tomasino.org/webmention" />
+    <link rel="pingback" href="https://webmention.io/tomasino.org/xmlrpc" />
+      <link rel="alternate" type="application/rss+xml" href="http://gopher.zone/index.xml" title="Highway to the Gopher Zone" />
+    <style>body{font-family:Arial,helvetica neue,Helvetica,sans-serif;line-height:28px;font-weight:500;overflow-x:hidden}h1{font-size:32px;line-height:1.5em;font-weight:700;margin-bottom:0}h1 a,h2 a,h3 a{box-shadow:inset 0 -1px 0 0 #fff,inset 0 -3px 0 0 #debdde}h1 a:hover,h2 a:hover,h3 a:hover{box-shadow:inset 0 -1px 0 0 #fff,inset 0 -3px 0 0 #780078}h2{font-size:18px}h3{font-size:24px}#list h1,#index h1{font-size:24px;font-style:italic;line-height:1.5em}#list h2,#index h2{margin-top:0;margin-bottom:50px;border-bottom:1px solid #ccc}#list h3,#index h3{margin-bottom:0}p,li{font-size:22px;line-height:1.5em;font-weight:400}.p-category{font-size:18px;color:#333;box-shadow:none;font-style:italic}.p-category:hover{box-shadow:0 0 0 0 #303030,0 1px 0 0 #780078}img{max-width:100%}blockquote{font-size:22px;font-weight:400;font-style:italic}pre{font-size:18px;font-weight:400}a{color:#59006b;font-weight:600;text-decoration:none;text-shadow:1px 1px 0 #fff,-1px 1px 0 #fff,2px 0 0 #fff,-2px 0 0 #fff;box-shadow:inset 0 2px 0 0 #fff,inset 0 -1px 0 0 #debdde}a:hover{transition:box-shadow .3s;box-shadow:inset 0 2px 0 0 #fff,inset 0 -1px 0 0 #780078}main{margin:0 auto;max-width:800px;padding:1px 20px 20px 60px}#back{font-size:40px;text-decoration:none;text-shadow:none;box-shadow:none;display:block;position:fixed;background:#000;color:#fff;left:0;top:0;height:100%;padding:5px;box-sizing:border-box}#back::after{content:'BACK';position:absolute;transform:rotate(90deg);left:45px;top:40px;transform-origin:0 0;font-size:.7em}#index ul,#index li,#tags,#tags li{display:inline-block;margin:0;padding:0 5px 0 0}#index li a,#tags li a{color:#888}time{margin-right:5px;color:#888}footer{margin-top:25px}.highlight pre{padding:10px;font-family:Consolas,andale mono wt,andale mono,lucida console,lucida sans typewriter,dejavu sans mono,bitstream vera sans mono,liberation mono,nimbus mono l,Monaco,courier new,Courier,monospace;font-size:18px;line-height:1.2em;overflow-x:scroll}figure{text-align:center}.info{border-bottom:1px solid #ccc;display:block}@media screen and (max-width:600px){#back{position:absolute;padding-left:30px;height:46px;width:100%}#back::after{content:'BACK';position:static;transform:none}main{padding:40px 20px 20px}}@media(prefers-color-scheme:dark){body{background:#303030;color:#c1c1c1;font-weight:400}h3{font-weight:400}a{color:#fff;text-shadow:1px 1px 0 #303030,-1px 1px 0 #303030,2px 0 0 #303030,-2px 0 0 #303030;transition:box-shadow .7s;box-shadow:0 0 0 0 #303030,0 1px 0 0 #97ecec}a:hover{box-shadow:0 0 0 0 #303030,0 3px 0 0 aqua}.p-category:hover{box-shadow:0 0 0 0 #303030,0 1px 0 0 #97ecec}h1 a,h2 a,h3 a{transition:box-shadow .7s;box-shadow:0 0 0 0 #303030,0 1px 0 0 #97ecec}h1 a:hover,h2 a:hover,h3 a:hover{box-shadow:0 0 0 0 #303030,0 3px 0 0 aqua}#index li a,#tags li a{color:#888}#back{color:#fff}time{color:#888}}</style>
+  </head>
+  <body>
+
+<header>
+  <a id="back" href="http://gopher.zone/">←</a>
+</header>
+<main>
+  <article class="h-entry">
+    <h1 class="p-name">Publishing on gophernicus</h1>
+    <span class="info">
+      <time class="dt-published" datetime="2018-09-21 21:55:28 -0400 -0400">2018.09.21</time>
+      <ul id="tags">
+        
+        
+      </ul>
+    </span>
+    <div class="e-content">
+      <p>Originally published by <strong>bitreich.org</strong> at
+<em>gopher://bitreich.org/0/tutorials/publish-gophernicus.txt</em></p>
+<hr>
+<p>Gophernicus is quite fussy about permissions, to minimise the risk of
+accidentally serving files not intended for public consumptions.  Only
+world accessible content will be served, so chmod files o+r and
+directories o+rw.  This is a common cause of confusion and frustration
+for beginners.</p>
+<p>Gophernicus supports so-called &ldquo;personal gopherspaces&rdquo;.  If a user
+&ldquo;bob&rdquo; has a directory named &ldquo;public_gopher&rdquo; in their home directory,
+then the file /home/bob/public_gopher/foo/bar/baz.ext will be
+accessible via the selector ~bob/foo/bar/baz.ext (if permissions
+allow).  The name of the &ldquo;public_gopher&rdquo; directory can be changed via
+the -u option.  This is a convenient feature for those who want to
+host multiple users, although it can of course be emulated with
+symlinks for other server software.</p>
+<p>Automatically generated directory listings list files in alphabetical
+order.  This is less than ideal for phloggers who usually want the
+most recent entry to appear at the top.  The conventional workaround
+for this seems to be to prefix filenames with some kind of timestamp
+that sorts nicely alphabetically.  YYYYMMDD timestamps obviously work
+nicely, but a three-character alphanumeric code also sees some use,
+see e.g. gopher://grex.org:70/0/~tfurrows/phlog_filename.txt.</p>
+<p>Automatically generated menus can be overridden by creating a file
+named &ldquo;gophermap&rdquo; in any directory.  Menu items are specified with
+lines of the type:</p>
+<p>Xname&lt;TAB&gt;selector&lt;TAB&gt;host&lt;TAB&gt;port</p>
+<p>where X is the gopher item type. The host and port may be omitted,
+in which case they will be set to the same host and port that the
+server is running on (the server&rsquo;s idea of its own hostname can be
+forced with the -h option).  The selector may also be omitted, in
+which case it will be set equal to the name.  Lines not beginning
+with a valid item type or with one of Gophernicus&rsquo; own non-standard
+control characters are treated as information lines (type i).</p>
+<p>It is important to note that selectors which do not begin with a /
+will be interpreted as <em>relative</em> links, e.g. a selector of &ldquo;bar&rdquo;
+specified in &ldquo;foo/gophermap&rdquo; will point to &ldquo;foo/bar&rdquo;.  Selectors
+beginning with / are treated as absolute links.  Some other gopher
+servers with seemingly compatible gophermap syntax (e.g. PyGopherd)
+treat all selectors as absolute and this can cause headaches when
+attempting to port gophermaps from one server to another.</p>
+<p>Dynamically generated menus are possible by making the &ldquo;gophermap&rdquo;
+file a world-executable script which produces output on stdout of
+exactly the same format as a static gophermap.</p>
+<p>As a lightweight alternative to gophermaps, a file named &ldquo;gophertag&rdquo;
+may be placed in any directory containing a &ldquo;user friendly&rdquo; name for
+that directory to be used in automatically generated listings (e.g.
+you could placed a gophertag file containing the text
+&ldquo;Miscellaneous photographs&rdquo; in the directory &ldquo;misc_photos&rdquo;).</p>
+
+    </div>
+  </article>
+</main>
+</body>
+</html>

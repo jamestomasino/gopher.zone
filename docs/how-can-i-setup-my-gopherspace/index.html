@@ -1,11 +1,10 @@
 <!DOCTYPE html>
 <html lang="en-us">
   <head>
-	<meta name="generator" content="Hugo 0.74.3" />
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Highway to the Gopher Zone</title>
+    <title>How Can I Setup My Gopherspace</title>
     
     
     <link rel="webmention" href="https://webmention.io/tomasino.org/webmention" />
@@ -15,93 +14,63 @@
   </head>
   <body>
 
-<main id="index" class="h-feed">
-<h1>Highway to the Gopher Zone</h1>
-<h2></h2>
+<header>
+  <a id="back" href="http://gopher.zone/">←</a>
+</header>
+<main>
+  <article class="h-entry">
+    <h1 class="p-name">How Can I Setup My Gopherspace</h1>
+    <span class="info">
+      <time class="dt-published" datetime="2018-09-21 21:01:08 -0400 -0400">2018.09.21</time>
+      <ul id="tags">
+        
+        
+      </ul>
+    </span>
+    <div class="e-content">
+      <p>Original published by <strong>SDF</strong> at <em>gopher://sdf.org:70/1/sdf/faq/GOPHER</em></p>
+<p>The article in this content is specific to setting up a gopher hole
+on SDF (The Super Dimensional Fortress) Public Access Unix System.
+Visit <a href="https://sdf.org">sdf.org</a> for more information on how to create an account.</p>
+<hr>
+<p>This document was written with &lsquo;mkgopher&rsquo; in mind.  You may be
+managing your space from the UNIX shell, but since &lsquo;mkgopher&rsquo;
+uses common UNIX commands, this should still be helpful.</p>
+<h2 id="setup">SETUP</h2>
+<p>This will create the directory for the top level of your GOPHERSPACE.
+Your URL will be &ldquo;gopher://sdf.lonestar.org/1/users/username&rdquo; (or
+&ldquo;gopher://sdf-eu.org/1/users/username&rdquo;) where &lsquo;username&rsquo; is your UNIX
+user id.  During your &lsquo;mkgopher&rsquo; session, this directory will be
+present.  If you don&rsquo;t create anyfiles or directories, the space
+will be removed to keep our site clean.</p>
+<p>NOTE: Unfortunately, most web browsers do not render gopher pages
+properly, let alone grok Gopher URLs.</p>
+<h2 id="title">TITLE</h2>
+<p>Your GOPHER URL is gopher://sdf.lonestar.org/1/users/login (or
+gopher://sdf-eu.org/1/users/login) where &lsquo;login&rsquo; is the UNIX user id
+you use to login to SDF.  Your SITE name is your &lsquo;login&rsquo;.  Since that
+is limited to 8 characters, you can use TITLE to set a 50 character
+or less title for your site.</p>
+<h2 id="describe">DESCRIBE</h2>
+<p>For each directory you create in your GOPHERSPACE you can use the
+DESCRIBE command to create a detailed description.  This entry is
+limited to 9 lines of roughly 50 characters per line.</p>
+<h2 id="mkdir">MKDIR</h2>
+<p>Create a subdirectory within your GOPHERSPACE.</p>
+<h2 id="rmdir">RMDIR</h2>
+<p>Remove a subdirectory within your GOPHERSPACE.</p>
+<h2 id="pico">PICO</h2>
+<p>Edit and publish a document.  You can also use this as a way to
+cut and paste text from your computer terminal to SDF.  ASCII upload
+mode can also be used, just start sending text once you open the
+editing buffer.</p>
+<h2 id="upload">UPLOAD</h2>
+<p>This should be used for large text files or binary data that cannot
+be transmitted via an ASCII transfer.  UPLOAD uses the ZMODEM file
+transfer protocol which some terminal emulators support (TeraTerm ..)</p>
 
-<article class="h-entry">
-  <h3><a href="http://gopher.zone/running-a-gopher-server-in-2018/" class="p-name u-url">Running a Gopher Server in 2018</a></h3>
-  <time class="dt-published" datetime="2019-03-05 18:46:58 -0500 -0500">2019.03.05</time>
-  <ul>
-    
-  </ul>
-</article>
-
-
-<article class="h-entry">
-  <h3><a href="http://gopher.zone/how-to-gophermap/" class="p-name u-url">How to gophermap</a></h3>
-  <time class="dt-published" datetime="2018-11-02 17:19:19 -0400 -0400">2018.11.02</time>
-  <ul>
-    
-  </ul>
-</article>
-
-
-<article class="h-entry">
-  <h3><a href="http://gopher.zone/what-makes-gopher-special/" class="p-name u-url">What Makes Gopher Special</a></h3>
-  <time class="dt-published" datetime="2018-09-21 22:04:44 -0400 -0400">2018.09.21</time>
-  <ul>
-    
-  </ul>
-</article>
-
-
-<article class="h-entry">
-  <h3><a href="http://gopher.zone/publishing-on-gophernicus/" class="p-name u-url">Publishing on gophernicus</a></h3>
-  <time class="dt-published" datetime="2018-09-21 21:55:28 -0400 -0400">2018.09.21</time>
-  <ul>
-    
-  </ul>
-</article>
-
-
-<article class="h-entry">
-  <h3><a href="http://gopher.zone/tips-for-publishing/" class="p-name u-url">Tips for Publishing</a></h3>
-  <time class="dt-published" datetime="2018-09-21 21:52:20 -0400 -0400">2018.09.21</time>
-  <ul>
-    
-  </ul>
-</article>
-
-
-<article class="h-entry">
-  <h3><a href="http://gopher.zone/tutorial-for-absolute-beginners/" class="p-name u-url">Tutorial for Absolute Beginners</a></h3>
-  <time class="dt-published" datetime="2018-09-21 21:48:42 -0400 -0400">2018.09.21</time>
-  <ul>
-    
-  </ul>
-</article>
-
-
-<article class="h-entry">
-  <h3><a href="http://gopher.zone/how-to-gopher/" class="p-name u-url">How to Gopher</a></h3>
-  <time class="dt-published" datetime="2018-09-21 21:09:55 -0400 -0400">2018.09.21</time>
-  <ul>
-    
-    <li><a class="p-category" href="http://gopher.zone/tags/introduction">Introduction</a></li>
-    
-  </ul>
-</article>
-
-
-<article class="h-entry">
-  <h3><a href="http://gopher.zone/how-can-i-setup-my-gopherspace/" class="p-name u-url">How Can I Setup My Gopherspace</a></h3>
-  <time class="dt-published" datetime="2018-09-21 21:01:08 -0400 -0400">2018.09.21</time>
-  <ul>
-    
-  </ul>
-</article>
-
-
-<article class="h-entry">
-  <h3><a href="http://gopher.zone/what-is-gopher-and-gopherspace/" class="p-name u-url">What Is Gopher and Gopherspace</a></h3>
-  <time class="dt-published" datetime="2018-09-21 20:49:13 -0400 -0400">2018.09.21</time>
-  <ul>
-    
-  </ul>
-</article>
-
-
+    </div>
+  </article>
 </main>
 </body>
 </html>

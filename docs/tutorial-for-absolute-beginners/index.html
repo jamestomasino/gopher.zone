@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Tutorial for Absolute Beginners</title>
+    
+    
+    <link rel="webmention" href="https://webmention.io/tomasino.org/webmention" />
+    <link rel="pingback" href="https://webmention.io/tomasino.org/xmlrpc" />
+      <link rel="alternate" type="application/rss+xml" href="http://gopher.zone/index.xml" title="Highway to the Gopher Zone" />
+    <style>body{font-family:Arial,helvetica neue,Helvetica,sans-serif;line-height:28px;font-weight:500;overflow-x:hidden}h1{font-size:32px;line-height:1.5em;font-weight:700;margin-bottom:0}h1 a,h2 a,h3 a{box-shadow:inset 0 -1px 0 0 #fff,inset 0 -3px 0 0 #debdde}h1 a:hover,h2 a:hover,h3 a:hover{box-shadow:inset 0 -1px 0 0 #fff,inset 0 -3px 0 0 #780078}h2{font-size:18px}h3{font-size:24px}#list h1,#index h1{font-size:24px;font-style:italic;line-height:1.5em}#list h2,#index h2{margin-top:0;margin-bottom:50px;border-bottom:1px solid #ccc}#list h3,#index h3{margin-bottom:0}p,li{font-size:22px;line-height:1.5em;font-weight:400}.p-category{font-size:18px;color:#333;box-shadow:none;font-style:italic}.p-category:hover{box-shadow:0 0 0 0 #303030,0 1px 0 0 #780078}img{max-width:100%}blockquote{font-size:22px;font-weight:400;font-style:italic}pre{font-size:18px;font-weight:400}a{color:#59006b;font-weight:600;text-decoration:none;text-shadow:1px 1px 0 #fff,-1px 1px 0 #fff,2px 0 0 #fff,-2px 0 0 #fff;box-shadow:inset 0 2px 0 0 #fff,inset 0 -1px 0 0 #debdde}a:hover{transition:box-shadow .3s;box-shadow:inset 0 2px 0 0 #fff,inset 0 -1px 0 0 #780078}main{margin:0 auto;max-width:800px;padding:1px 20px 20px 60px}#back{font-size:40px;text-decoration:none;text-shadow:none;box-shadow:none;display:block;position:fixed;background:#000;color:#fff;left:0;top:0;height:100%;padding:5px;box-sizing:border-box}#back::after{content:'BACK';position:absolute;transform:rotate(90deg);left:45px;top:40px;transform-origin:0 0;font-size:.7em}#index ul,#index li,#tags,#tags li{display:inline-block;margin:0;padding:0 5px 0 0}#index li a,#tags li a{color:#888}time{margin-right:5px;color:#888}footer{margin-top:25px}.highlight pre{padding:10px;font-family:Consolas,andale mono wt,andale mono,lucida console,lucida sans typewriter,dejavu sans mono,bitstream vera sans mono,liberation mono,nimbus mono l,Monaco,courier new,Courier,monospace;font-size:18px;line-height:1.2em;overflow-x:scroll}figure{text-align:center}.info{border-bottom:1px solid #ccc;display:block}@media screen and (max-width:600px){#back{position:absolute;padding-left:30px;height:46px;width:100%}#back::after{content:'BACK';position:static;transform:none}main{padding:40px 20px 20px}}@media(prefers-color-scheme:dark){body{background:#303030;color:#c1c1c1;font-weight:400}h3{font-weight:400}a{color:#fff;text-shadow:1px 1px 0 #303030,-1px 1px 0 #303030,2px 0 0 #303030,-2px 0 0 #303030;transition:box-shadow .7s;box-shadow:0 0 0 0 #303030,0 1px 0 0 #97ecec}a:hover{box-shadow:0 0 0 0 #303030,0 3px 0 0 aqua}.p-category:hover{box-shadow:0 0 0 0 #303030,0 1px 0 0 #97ecec}h1 a,h2 a,h3 a{transition:box-shadow .7s;box-shadow:0 0 0 0 #303030,0 1px 0 0 #97ecec}h1 a:hover,h2 a:hover,h3 a:hover{box-shadow:0 0 0 0 #303030,0 3px 0 0 aqua}#index li a,#tags li a{color:#888}#back{color:#fff}time{color:#888}}</style>
+  </head>
+  <body>
+
+<header>
+  <a id="back" href="http://gopher.zone/">←</a>
+</header>
+<main>
+  <article class="h-entry">
+    <h1 class="p-name">Tutorial for Absolute Beginners</h1>
+    <span class="info">
+      <time class="dt-published" datetime="2018-09-21 21:48:42 -0400 -0400">2018.09.21</time>
+      <ul id="tags">
+        
+        
+      </ul>
+    </span>
+    <div class="e-content">
+      <p>Originally published by <strong>bitreich.org</strong> at
+<em>gopher://bitreich.org/0/tutorials/beginners.txt</em></p>
+<hr>
+<p>Hello dear reader,</p>
+<p>If you have heard about gopher and want to explore its space but feel
+lost about how to achieve that, this text is for you. We will assume
+that you have no technical skill so everyone can read this.</p>
+<p>Gopher is the name of a protocol for sharing text, images or any kind
+of file. A network protocol is a set of rules which allow to create a
+common service for different people, everyone needing to respect
+thoses rules to be able to communicate with each other. Some people
+writing code (called Developers) will write &ldquo;Clients&rdquo; software for the
+end-user and others developers will write &ldquo;Servers&rdquo; software which
+will allow to publish content. The gopher protocol is so simple that
+anyone with basic knowledge of computer science can write its own
+client or server easily. Using gopher implies to understand the
+protocol itself, but we promise it&rsquo;s really easy.</p>
+<p>Gopher is an enjoyable way to browse informations. Every gopherhole
+[that is the name given to someone&rsquo;s gopher content] looks like
+another one. There is no way to customize a gopherhole display except
+from the text. While this can look a bit harsh, this makes gopher
+universal. If you know how to browse one gopherhole, you will know how
+to browse all others because the way to do it is consistent.</p>
+<p>So, let&rsquo;s speak about how gopher works. First, gopher requires 3
+informations if you want to get content. You will need a remote
+address to connect to [it&rsquo;s called an hostname, like &ldquo;floodgap.com&rdquo;],
+the data type and a path to the data. The url looks like this :</p>
+<pre><code>gopher://hostname/type/path
+</code></pre>
+<p>The most important type is the type 1, which is the gopher menu
+type. A gopher menu is an index made of differents lines, each line
+having a type field to know what kind of data it leads to. It will
+allow you to browse from menu to menu or from a menu to a content
+(image, text, music, archives&hellip;).</p>
+<p>Here is the list of the most used data types allowed on gopher, the
+complete list is defined in a document named RFC 1436 which defines
+the gopher protocol :</p>
+<ul>
+<li>type i is a line of text in the menu, it&rsquo;s not a link</li>
+<li>type 0 is a link to a text document</li>
+<li>type 1 is a link to another gopher menu</li>
+<li>type 3 means an error</li>
+<li>type 7 (search) asks a text input and lead to another menu</li>
+<li>type 9 is a link to a binary file (data archives, music&hellip;)</li>
+<li>type g is a link to a GIF file (animated picture)</li>
+<li>type I is a link to an image file</li>
+<li>type h is a link which lead to use another protocol (irc, http&hellip;)</li>
+</ul>
+<p>Only the types menu and search can lead to another content. Asking
+another type will lead to downloading a file.</p>
+<p>Now that you are ready to browse the gopher space, we recommend you to
+read the others tutorials about the gopher client software you would
+like to use.</p>
+<!-- raw HTML omitted -->
+
+    </div>
+  </article>
+</main>
+</body>
+</html>
