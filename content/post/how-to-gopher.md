@@ -10,7 +10,8 @@ _gopher://sdf.org:70/0/users/dbucklin/posts/how\_gopher.txt_
 
 - - - - -
 
-<pre>
+```
+
 From: dbucklin@sdf.org
 Date: 2018-03-31
 Subject: How to Gopher
@@ -219,6 +220,6 @@ back end.  I think that if more regular folks feel like they own  a
 piece  of the internet, they will be more likely to resist policies and
 practices that aim to disenfranchise them.
 
-</pre>
+```
 
 <!--  vim: set shiftwidth=4 tabstop=4 expandtab: -->

@@ -8,7 +8,8 @@ _gopher://baud.baby/0/phlog/fs20181102.txt_
 
 - - - - -
 
-<pre>
+```
+
    2018-11-02                                   /        \/        \/    /   \
                                                /       __/         /_       _/
    A common question  I get about  baud.baby  /        _/         /         /
@@ -223,6 +224,6 @@ that?"
 
 EOF
 
-</pre>
+```
 
 <!--  vim: set shiftwidth=4 tabstop=4 expandtab: -->

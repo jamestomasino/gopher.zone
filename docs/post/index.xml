@@ -159,15 +159,228 @@ gophermaps (if you have them) and you’re off!</p>
       
       <guid>http://gopher.zone/how-to-gophermap/</guid>
       <description>Originally published by cat at gopher://baud.baby/0/phlog/fs20181102.txt
- </description>
+  2018-11-02 / \/ \/ / \ / __/ /_ _/ A common question I get about baud.baby / _/ / / is &amp;quot;How did you do that?&amp;quot; and it always \_______/_\___/____/\___/____/_ mystifies me because nothing I do is / \/ \/ / \ difficult so let me coach you on the basics / _/ /_ _/ of gophermap-fu. Let me just preface this /- / _/ / with my usual rant: Gopher is not a pretty \________/\________/\___/____/ protocol, it can be beautified somewhat but at its heart Gopher is about delivering content.</description>
       <content:encoded>
       <![CDATA[
         <p>Originally published by <strong>cat</strong> at
 <em>gopher://baud.baby/0/phlog/fs20181102.txt</em></p>
 <hr>
-<!-- raw HTML omitted -->
-<!-- raw HTML omitted -->
-<!-- raw HTML omitted -->
+<pre><code>
+   2018-11-02                                   /        \/        \/    /   \
+                                               /       __/         /_       _/
+   A common question  I get about  baud.baby  /        _/         /         /
+is  &quot;How  did  you do that?&quot;  and  it always  \_______/_\___/____/\___/____/_
+mystifies  me  because  nothing   I   do  is    /        \/        \/    /   \
+difficult  so let me coach you on the basics   /        _/         /_       _/
+of gophermap-fu. Let  me  just  preface this  /-        /        _/         /
+with my usual rant: Gopher  is not  a pretty  \________/\________/\___/____/
+protocol,  it can be beautified somewhat but
+at  its  heart Gopher  is  about  delivering  content.  It's one thing to  put
+together a fancy-pants gophermap with fun ASCII banners and who knows what but
+if there's no content  no one is going to care and  no one is going to revisit
+it. For example, did you know I have a Gopher space on tilde.town? Most people
+don't because it's just a mildly interesting  one-shot, there's nothing  there
+to bring people  back, nothing to talk about beyond &quot;heh looks neat&quot;. I put  a
+lot of effort  into it but  at the end  of the day  who cares? Content is what
+drives Gopher, delivering content is what Gopher does best.
+
+   It doesn't matter how  much time you put into a gophermap  file and a fancy
+ASCII banner  and all  that,  if you don't have content  to serve  then it  is
+wasted effort.
+
+   Anyway,  enough preaching. The most common  mistake  I've seen in  people's
+gopher  spaces  and from new users is approaching it like it's a web  page and
+trying to throw an index.html  file into a gopher  space or trying to format a
+gophermap  with  HTML markup. Gopher  isn't  HTML,  there's  no index.html  or
+anything like  that. A  gopher space, no  matter  how pretty it is is far more
+analogous to a file of  tab-separated values than an HTML  document, in that a
+gophermap  is quite literally a table  of tab-separated values. Let me try and
+illustrate.
+
+   A nice table of contacts:
+
+
+      Salutation|Name       |Phone Number  |Email Address
+      ----------|-----------|--------------|-------------------
+      Mr        |John Smith |(858) 651-5050|jsmith@example.com
+      Miss      |Jane Doe   |(801) 820-0263|missdoe@noemail.com
+
+
+   The same data as a tab-separated file:
+
+
+      Mr[tab]John Smith[tab](858) 651-5050[tab]jsmith@example.com
+      Miss[tab]Jane Doe[tab](801) 820-0263[tab]missdoe@noemail.com
+
+
+   A nice pseudo-gophermap, represented as a table:
+
+
+      File description       |Path and Filename        |Domain |Port
+      -----------------------|-------------------------|-------|----
+      notes.txt              |/home/me/notes.txt       |my.site|70
+      construction.gif       |/home/me/construction.gif|my.site|70
+      directory of more files|/home/me/morefiles/      |my.site|70
+
+
+   The same gophermap as, uh... a gophermap:
+
+
+      notes.txt[tab]/home/me/notes.txt[tab]my.site[tab]70
+      construction.gif[tab]/home/me/construction.gif[tab]my.site[tab]70
+      directory of more files[tab]/home/me/morefiles/[tab]my.site[tab]70
+
+
+   Of course, though, nothing is that straight forward.  The first &quot;column&quot; of
+a gophermap not only  describes the file to humans, it also describes the type
+of  file, or  &quot;itemtype&quot;, to Gopher  clients and  it does  so using  the first
+character of the  description. It's similar to  how some  filesystems will use
+the  characters after the last period in a filename  as  an indicator  of what
+type of file a file is. The standard Gopher itemtypes and their indicator are:
+
+
+      Indicator   | Itemtype
+      ------------|-----------------------------------------
+      0           | Text file
+      1           | Gopher submenu/directory
+      2           | CCSO Nameserver
+      3           | Error code
+      4           | BinHex-encoded file (primarily for Macs)
+      5           | DOS binary
+      6           | UNIX uuencoded file
+      7           | Gopher full-text search
+      8           | Telnet
+      9           | Binary file
+      +           | Mirror or alternate server
+      g           | GIF file
+      I           | Other image file
+      T           | Telnet 3270
+
+
+   And  though non-canonical, I think most  clients/servers  will also support
+the following:
+
+
+      Indicator   | Itemtype
+      ------------|-----------------------------------------
+      h           | HTML, Hypertext Markup Language
+      i           | inline text or info line
+      s           | Sound/wav file
+
+
+   So reworking  our example  above  but  continuing  the  tab-separated  file
+analogy, the file descriptions would look something like this as a table:
+
+
+      File description        |Path and Filename        |Domain |Port
+      ------------------------|-------------------------|-------|----
+      0notes                  |/home/me/notes.txt       |my.site|70
+      gconstruction           |/home/me/construction.gif|my.site|70
+      1directory of more files|/home/me/morefiles/      |my.site|70
+
+
+   And like this as a tab-separated file or gophermap:
+
+
+      0notes[tab]/home/me/notes.txt[tab]my.site[tab]70
+      gconstruction[tab]/home/me/construction.gif[tab]my.site[tab]70
+      1directory of more files[tab]/home/me/morefiles/[tab]my.site[tab]70
+
+
+   And  that's it! That's honestly  all there is  to it: a description  of the
+file, prefixed  with one of the Gopher itemtypes,  then the  filename with the
+path if necessary,  then the domain it's on and  then the port used to  access
+it.
+
+   &quot;Ok Cat, but now this is just a list of files, how do I make it FANCY?!&quot;
+
+   It's  no different  to any other line in a gophermap file! In the  list  of
+itemtypes above  there's an item i for &quot;inline  text&quot; or an info line, this is
+essentially an itemtype that does not link to a file, it only prints the  item
+description and is ostensibly used to provide helpful information to the user.
+
+   So, ok, you've gone to FIGlet dot com and got ya fresh new ASCII banner...
+
+   &quot;Man it's so cool I'm just  gonna  paste it right-&quot;&quot;
+
+   Now  hold  up one minute there!  First some  rules; your  super l33t banner
+can't have  any tabs in  it because tabs  are separators  remember and it also
+can't  be  too wide, the  loose-rule  is  67 characters  wide,  excluding  the
+itemtype  prefix.  Yeah? The  last rule  is my rule;  don't cut corners.  Some
+clients will  render inline text without the identifier, some won't. Some will
+render it  if  you  just put the itemtype  and some won't.  If  you don't  cut
+corners and have the  itemtype and  the path/host/port at the end then  you're
+golden, everything should render that line properly.
+
+   &quot;Whatever, Cat.&quot;
+
+   Ok, ok. Imagine your dope ass FIGlet logo looks like this:
+
+
+           _____          _____        _____       ______
+       ___|\    \    ____|\    \   ___|\    \  ___|\     \
+      |    |\    \  /     /\    \ |    |\    \|     \     \
+      |    | |    |/     /  \    \|    | |    |     ,_____/|
+      |    | |    |     |    |    |    |/____/|     \--'\_|/
+      |    | |    |     |    |    |    ||    ||     /___/|
+      |    | |    |\     \  /    /|    ||____|/     \____|\
+      |____|/____/| \_____\/____/ |____|      |____ '     /|
+      |    /    | |\ |    ||    | /    |      |    /_____/ |
+      |____|____|/  \|____||____|/|____|      |____|     | /
+                                                   |_____|/
+
+
+   So fucking cool! So  now, using  our  table  analogy, let's  imagine how it
+would look. Note  the  i  itemtype  in  the first  column and  the file/server
+information following it:
+
+
+      File description                                       |Path and Filename|Domain   |Port
+      -------------------------------------------------------|-----------------|---------|----
+      i     _____          _____        _____       ______   |/                |localhost|70
+      i ___|\    \    ____|\    \   ___|\    \  ___|\     \  |/                |localhost|70
+      i|    |\    \  /     /\    \ |    |\    \|     \     \ |/                |localhost|70
+      i|    | |    |/     /  \    \|    | |    |     ,_____/||/                |localhost|70
+      i|    | |    |     |    |    |    |/____/|     \--'\_|/|/                |localhost|70
+      i|    | |    |     |    |    |    ||    ||     /___/|  |/                |localhost|70
+      i|    | |    |\     \  /    /|    ||____|/     \____|\ |/                |localhost|70
+      i|____|/____/| \_____\/____/ |____|      |____ '     /||/                |localhost|70
+      i|    /    | |\ |    ||    | /    |      |    /_____/ ||/                |localhost|70
+      i|____|____|/  \|____||____|/|____|      |____|     | /|/                |localhost|70
+      i                                             |_____|/ |/                |localhost|70
+
+
+   And now as tab-separated values AKA a gophemap:
+
+
+      i     _____          _____        _____       ______[tab]/[tab]localhost[tab]70
+      i ___|\    \    ____|\    \   ___|\    \  ___|\     \[tab]/[tab]localhost[tab]70
+      i|    |\    \  /     /\    \ |    |\    \|     \     \[tab]/[tab]localhost[tab]70
+      i|    | |    |/     /  \    \|    | |    |     ,_____/|[tab]/[tab]localhost[tab]70
+      i|    | |    |     |    |    |    |/____/|     \--'\_|/[tab]/[tab]localhost[tab]70
+      i|    | |    |     |    |    |    ||    ||     /___/|[tab]/[tab]localhost[tab]70
+      i|    | |    |\     \  /    /|    ||____|/     \____|\[tab]/[tab]localhost[tab]70
+      i|____|/____/| \_____\/____/ |____|      |____ '     /|[tab]/[tab]localhost[tab]70
+      i|    /    | |\ |    ||    | /    |      |    /_____/ |[tab]/[tab]localhost[tab]70
+      i|____|____|/  \|____||____|/|____|      |____|     | /[tab]/[tab]localhost[tab]70
+      i                                             |_____|/[tab]/[tab]localhost[tab]70
+
+
+   See,  you've got  it! That's  the whole  deal, there's no  mystery  to  it,
+there's no secret Gopher technique, just a table of tab-separated values saved
+into your Gopher space with the filename &quot;gophermap&quot;.
+
+   &quot;But  Cat, you know that's not what we're asking right? We want to know how
+to make all our own  original  ASCII  text and  stuff  ourselves, how do we do
+that?&quot;
+
+   Huh? Fucked if I know.
+
+
+
+EOF
+
+</code></pre><!-- raw HTML omitted -->
 
       ]]>
       </content:encoded>
@@ -479,15 +692,222 @@ like to use.</p>
       
       <guid>http://gopher.zone/how-to-gopher/</guid>
       <description>Originally published by dbucklin at gopher://sdf.org:70/0/users/dbucklin/posts/how_gopher.txt
- </description>
+  From: dbucklin@sdf.org Date: 2018-03-31 Subject: How to Gopher In principal, publishing a Gopher site should be easy. And it *is* easy, assuming you are willing to put in some effort. At minimum, you need to find someone who is already operating a Gopher server, find out how to get access to the server, and then create, orga- nize, and upload your content. At most, you need to set up a gopher server -- not just the daemon, but set up a server or VPS with the appropriate operating system.</description>
       <content:encoded>
       <![CDATA[
         <p>Originally published by <strong>dbucklin</strong> at
 <em>gopher://sdf.org:70/0/users/dbucklin/posts/how_gopher.txt</em></p>
 <hr>
-<!-- raw HTML omitted -->
-<!-- raw HTML omitted -->
-<!-- raw HTML omitted -->
+<pre><code>
+From: dbucklin@sdf.org
+Date: 2018-03-31
+Subject: How to Gopher
+
+In principal, publishing a Gopher site should be easy.  And it *is*
+easy, assuming you are willing to put in some effort.  At  minimum,
+you  need to find someone who is already operating a Gopher server,
+find out how to get access to the server, and  then  create,  orga-
+nize, and upload your content.
+
+At most, you need to set up a gopher server -- not just the daemon,
+but set up a server or VPS with the appropriate  operating  system.
+This  could be a Raspberry Pi or Beaglebone Black on your home net-
+work, or a VPS at Digital Ocean, Vultr, Lightsail, or any number of
+VPS providers.
+
+Neither of these are as easy as setting up a blog at WordPress.com,
+but you're here to set up a gopher hole, right?  I won't cover  how
+to  set  up  a  VPS  or some other incarnation of a server.  I also
+won't cover how to choose, install, and configure a gopher  server.
+Aside from that, there's really only three things you need to do:
+
+* Create your content
+* Organize your content
+* Upload your content
+
+Assuming  all goes to plan, you will have a gopher hole that anyone
+willing to fire up a gopher client can see.
+
+Creating Content
+
+If content is king on the web, on Gopher it's...  the  only  thing.
+The  good news is that just about every device has a text editor on
+it.  Don't use anything  with  formatting  in  it  (e.g.  Microsoft
+Word),  that's not plain text.  Some of the fancier word processing
+programs can output plain text if you tell them to.   Beyond  that,
+what content you choose to share is up to you.  You could write :
+
+* a gopher log, or phlog, with posts on any topic you like
+* short stories
+* instructions on how to do things
+* poetry or song lyrics
+* screenplays or librettos
+* your own dictionary
+* research articles
+* book reviews
+* class notes
+* ASCII art
+* a mix of all of the above
+
+You could also collect documents from around the internet and share
+them.  Most Gopher clients only display plain text files.  They can
+also  handle  downloading  files, but not viewing them.  That means
+that someone can download a PDF,  for  example,  from  your  gopher
+hole,  but they will need a PDF viewer to see it.  The same applies
+to images.
+
+Organize Your Content
+
+Content in a gopher hole is organized through the gophermap.  A go-
+phermap  is  a  plain  text  file that contains selectors for other
+files, including gophermaps, in your gopher hole or,  indeed,  any-
+where  in  gopherspace.   A selector is the location of a file on a
+gopher server.  So, a gophermap is a list of the locations of other
+files on the server.
+
+Creating  a  gophermap  is  one of the more technical challenges in
+creating a gopher hole because of the specific formatting  require-
+ments for gophermaps.  Each line in a gophermap begins with an item
+type indicator.  An item type indicator is a single character  that
+tells  the gopher client how it should handle the rest of the line.
+To set up a very basic gopher  hole,  you  only  need  three  items
+types: i, 1, and 0.
+
++-----+-----------------------------------------------------------+
+|Type | Function                                                  |
++-----+-----------------------------------------------------------+
+|i    | Tells  the  gopher client to display the rest of the line |
+|     | unaltered. This type is used to add information to a  go- |
+|     | phermap  to help explain, for example, one or more selec- |
+|     | tors.                                                     |
++-----+-----------------------------------------------------------+
+|1    | Indicates that the selector refers to another  gophermap. |
+|     | Multiple  gophermaps can be used to give your gopher hole |
+|     | some structure.                                           |
++-----+-----------------------------------------------------------+
+|0    | Indicates a selector that refers to  a  text  file.  This |
+|     | tells  the gopher client that the file referred to in the |
+|     | selector is a plain text file.                            |
++-----+-----------------------------------------------------------+
+
+For example, you could create a top-level gopher map that points to
+an  About  Me  file, and to other gophermaps for Books, Movies, and
+Knitting Projects.  The item type for the About Me file would be  0
+since  it  is  pointing  to  a text file.  The item type for Books,
+Movies, and Knitting Projects would be  1  because  they  point  to
+folders  that  contain  other gophermaps.  A gophermap can also in-
+clude lines that use type i to provide  inline  information.   This
+lets  you  give  visitors  context around the selectors in your go-
+phermap.  Lines that use type 1 and 0 require a specific format:
+
+         Tlabel&amp;lt;tab&amp;gt;path&amp;lt;tab&amp;gt;host&amp;lt;tab&amp;gt;port
+
+Here's a breakdown of what this means:
+
++--------+---------------------------------------------------+
+|Element | Function                                          |
++--------+---------------------------------------------------+
+|T       | The item type code (e.g. 1, 0, i)                 |
++--------+---------------------------------------------------+
+|label   | A human-readable label for this item (e.g. Books) |
++--------+---------------------------------------------------+
+|path    | The relative path to the target file              |
++--------+---------------------------------------------------+
+|host    | The hostname of the target gopher server          |
++--------+---------------------------------------------------+
+|port    | The gopher server port (usually 70).              |
++--------+---------------------------------------------------+
+|&amp;lt;tab&amp;gt;   | A literal tab character (ASCII character 9)       |
++--------+---------------------------------------------------+
+
+Depending on the gopher server, you may be able to omit the  server
+and port fields if your selectors are on the same server as the go-
+phermap.  I'm going to omit these fields from  the  examples  below
+for readability.
+
+Let's  assume  we  have folders called books, movies, and knitting,
+and a text file named about.txt.  Our folder structure  would  look
+like this:
+
+         -home
+          +books/
+          +movies/
+          +knitting/
+           about.txt
+
+Our hypothetical gophermap looks like this:
+
+         0About Me&amp;lt;tab&amp;gt;about.txt
+         1Books&amp;lt;tab&amp;gt;books
+         1Movies&amp;lt;tab&amp;gt;movies
+         1Knitting Projects&amp;lt;tab&amp;gt;knitting
+
+We can add some i type lines to this to give some context.
+
+         iWelcome to my gopher hole!
+         i
+         0About Me&amp;lt;tab&amp;gt;about.txt
+         i
+         iHere are some books that I've read.
+         1Books&amp;lt;tab&amp;gt;books
+         i
+         iI also like to write about movies.
+         1Movies&amp;lt;tab&amp;gt;movies
+         i
+         iI collect knitting projects.
+         1Knitting Projects&amp;lt;tab&amp;gt;knitting
+
+Let's put this main gophermap in our home folder.
+
+         -home
+          +books/
+          +movies/
+          +knitting/
+           about.txt
+           gophermap
+
+Uploading Content
+
+Once  your  work has been edited, spell-checked, and formatted, you
+will want to put it up on a gopher server where  other  people  can
+read  it.   There  are  many tools that will help you transfer your
+content to your host, and I'm not going to cover  them  here.   The
+process  of  uploading  your content will depend heavily on the ma-
+chine and operating system you are using.  It's  most  likely  that
+you  will  be  required  by your host to use a secure file transfer
+protocol such as SFTP or SCP.  Your host should be able to  provide
+you with information about how they expect you to transfer files to
+their system.  To find a suitable client, your best bet is  to  use
+your favorite search engine.  Your system administrator may be able
+to provide some advice.
+
+After you've uploaded your content, it's time to test  your  gopher
+hole!   Be  sure to test your gopher hole each time you upload con-
+tent.  I can't tell you how many mistakes I've  caught  only  after
+uploading  my content.  Spelling mistakes, gophermap format errors,
+missing files... all of it.  Make sure you  achieved  the  intended
+outcome.
+
+Finally, be sure to make a backup of your work.  Writing takes time
+and effort.  Don't lose all that work because your hard drive fails
+or  you  fall victim to malicious software.  Here, again, there are
+many ways to do this.  I recommend doing a little research to  find
+a  method  that  will  work in your particular circumstances.  Make
+sure you back up your work regularly.
+
+It Gets Easier
+
+When I think about the work that goes into  putting  a  simple  web
+page  or  text file on the internet, I realize how inaccessible the
+internet is for most people.  As I write this, there is no  commer-
+cial interest in Gopher.  Many, myself included, hope it stays that
+way.  This means that there's no one trying to  make  all  of  this
+push-button-simple  so  that they can make a buck off of you on the
+back end.  I think that if more regular folks feel like they own  a
+piece  of the internet, they will be more likely to resist policies and
+practices that aim to disenfranchise them.
+
+</code></pre><!-- raw HTML omitted -->
 
       ]]>
       </content:encoded>
