@@ -411,63 +411,43 @@
   
 
   <div class="entry-content">
-    
-
-<p>Original published by <strong>SDF</strong> at <em>gopher://sdf.org:70/1/sdf/faq/GOPHER</em></p>
-
+    <p>Original published by <strong>SDF</strong> at <em>gopher://sdf.org:70/1/sdf/faq/GOPHER</em></p>
 <p>The article in this content is specific to setting up a gopher hole
 on SDF (The Super Dimensional Fortress) Public Access Unix System.
 Visit <a href="https://sdf.org">sdf.org</a> for more information on how to create an account.</p>
-
-<hr />
-
+<hr>
 <p>This document was written with &lsquo;mkgopher&rsquo; in mind.  You may be
 managing your space from the UNIX shell, but since &lsquo;mkgopher&rsquo;
 uses common UNIX commands, this should still be helpful.</p>
-
 <h2 id="setup">SETUP</h2>
-
 <p>This will create the directory for the top level of your GOPHERSPACE.
 Your URL will be &ldquo;gopher://sdf.lonestar.org/1/users/username&rdquo; (or
 &ldquo;gopher://sdf-eu.org/1/users/username&rdquo;) where &lsquo;username&rsquo; is your UNIX
 user id.  During your &lsquo;mkgopher&rsquo; session, this directory will be
 present.  If you don&rsquo;t create anyfiles or directories, the space
 will be removed to keep our site clean.</p>
-
 <p>NOTE: Unfortunately, most web browsers do not render gopher pages
 properly, let alone grok Gopher URLs.</p>
-
 <h2 id="title">TITLE</h2>
-
 <p>Your GOPHER URL is gopher://sdf.lonestar.org/1/users/login (or
 gopher://sdf-eu.org/1/users/login) where &lsquo;login&rsquo; is the UNIX user id
 you use to login to SDF.  Your SITE name is your &lsquo;login&rsquo;.  Since that
 is limited to 8 characters, you can use TITLE to set a 50 character
 or less title for your site.</p>
-
 <h2 id="describe">DESCRIBE</h2>
-
 <p>For each directory you create in your GOPHERSPACE you can use the
 DESCRIBE command to create a detailed description.  This entry is
 limited to 9 lines of roughly 50 characters per line.</p>
-
 <h2 id="mkdir">MKDIR</h2>
-
 <p>Create a subdirectory within your GOPHERSPACE.</p>
-
 <h2 id="rmdir">RMDIR</h2>
-
 <p>Remove a subdirectory within your GOPHERSPACE.</p>
-
 <h2 id="pico">PICO</h2>
-
 <p>Edit and publish a document.  You can also use this as a way to
 cut and paste text from your computer terminal to SDF.  ASCII upload
 mode can also be used, just start sending text once you open the
 editing buffer.</p>
-
 <h2 id="upload">UPLOAD</h2>
-
 <p>This should be used for large text files or binary data that cannot
 be transmitted via an ASCII transfer.  UPLOAD uses the ZMODEM file
 transfer protocol which some terminal emulators support (TeraTerm ..)</p>

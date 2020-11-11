@@ -411,90 +411,63 @@
   
 
   <div class="entry-content">
-    
-
-<p>Original published by <strong>Paul Scott</strong> at
+    <p>Original published by <strong>Paul Scott</strong> at
 <em><a href="https://prgmr.com/blog/gopher/2018/11/09/setting-up-gopherserver.html">prgmr.com</a></em></p>
-
-<hr />
-
+<hr>
 <p>If you read the History of Gopher then you might want to make your own server.
 The process isn’t complicated, thanks to an application called Pygopherd. You
 will need a Linux machine or virtual machine (this article uses Ubuntu) with
 Python installed (default on most modern distros). There are just a few steps
 to follow.</p>
-
 <h2 id="step-1-make-sure-that-pygopherd-is-in-your-repositories">Step 1: Make sure that pygopherd is in your repositories.</h2>
-
 <pre><code>$ apt-cache search pygopherd
 </code></pre>
-
 <h2 id="step-2-install-pygopherd">Step 2: Install pygopherd</h2>
-
 <pre><code>$ sudo apt-get install pygopherd
 </code></pre>
-
 <h2 id="step-3-configure-pygopherd">Step 3: Configure pygopherd</h2>
-
 <p>Open /etc/pygopherd/pygopherd.conf in your favorite editor. The config file is
 well-commented and mostly self-explanatory. The most critical change is the
 name of your server, which allows a gopher client to find your server. In your
 text editor find “servername” and configure:</p>
-
 <pre><code>servername = &lt;IP or Domain&gt;
 </code></pre>
-
 <p>Your IP address is available in /etc/network/interfaces.</p>
-
 <h2 id="step-4-set-up-the-server">Step 4: Set up the server</h2>
-
 <h3 id="stop-start-and-restart-your-gopher-server">Stop, start, and restart your gopher server</h3>
-
 <p>Your gopher server is up by default. Start/stop/restart the service using:</p>
-
 <pre><code>$ sudo /etc/init.d/pygopherd start
 $ sudo /etc/init.d/pygopherd stop
 $ sudo /etc/init.d/pygopherd restart
 </code></pre>
-
 <h3 id="change-your-default-gopher-directory">Change your default gopher directory</h3>
-
 <p>By default, the directory where your gopher-related files are stored is
 /var/gopher. To change this directory open up pygopherd.config and edit the
 setting root=/var/gopher (located around line 120 in the config file) to your
 desired directory. Don’t forget to add a gophermap to the new directory. (For
 more about gophermaps, see next.)</p>
-
 <h2 id="step-5-configure-the-gophermap-and-add-content">Step 5: Configure the gophermap and Add Content</h2>
-
 <p>Your gophermap is an index for each folder in your gopherhole.</p>
-
 <p>Technically, a folder doesn’t need a gophermap. However the gophermap file can
 be quite useful. It gives you more control over the structure of your
 gopherhole, lets you add links and text to your pages.</p>
-
 <p>With a gophermap your server will appear as a list of files and links, with
 comments and other information that you might choose to add. Without the
 gophermap your server will appear as a raw list of files and folders, navigable
 in a gopher client but with less information for your users.</p>
-
 <p>If you choose NOT to use a gophermap then you must delete the default gophermap
 file. A gopher client will look for the gophermap by default and if it’s there
 then it will override the other content in your folder. If you do use
 a gophermap then you will have to update it every time you add or delete
 content from the folder.</p>
-
 <h3 id="gophermap-file-syntax">Gophermap file syntax</h3>
-
 <p>In a Gopher menu&rsquo;s source code, a one-character code indicates what kind of
 content the client should expect. This code may either be a digit or a letter
 of the alphabet; letters are case-sensitive.</p>
-
 <p>RFC 1436, the Gopher technical spec, defines 14 item types. Type 3 is an error
 code for exception handling. Gopher client authors improvised item types
 h (HTML), i (informational message), and s (sound file) after the publication
 of RFC 1436.</p>
-
 <pre><code>Canonical Types
 0   Text File
 1   Gopher submenu or link to another gopher server
@@ -515,17 +488,13 @@ h   HTML file
 i   Informational message
 s   Sound file
 </code></pre>
-
 <p>To set up a very basic gopherhole, you need only three item types:
 i (informational message), 1 (link or subdirectory), and 0 (text file). Edit
 the gophermap file at</p>
-
 <pre><code>/var/gopher/gophermap
 </code></pre>
-
 <p>A gophermap is formatted as a set of lines, one for each item, using
 tab-delimited fields with the following syntax:</p>
-
 <pre><code>Tlabel&lt;tab&gt;path&lt;tab&gt;host&lt;tab&gt;port
 
 Where:
@@ -536,21 +505,16 @@ host   The hostname of the target gopher server
 port   The port that the gopher server is listening on (usually 70)
        A literal tab character (ASCII character 9)
 </code></pre>
-
 <p>Note that there is no space or tab between the item type and the label.</p>
-
 <p>You can omit the host and port fields if your items are on the same server as
 the gophermap. You can omit everything but the item type and label for
 informational items.</p>
-
 <p>So suppose you use the default setup of /var/gopher as your home folder for
 content and your main gophermap. In that folder you have the gophermap; an
 “AboutMe” file and three subfolders for a blog, movie reviews and vacation
 photos.</p>
-
 <p>The main gophermap might look like this, with informational items to explain
 each folder.</p>
-
 <pre><code>iWelcome to my Gopherhole!
 i
 0A little bit about me.&lt;tab&gt;about.txt
@@ -564,18 +528,14 @@ i
 iPics from my vacation in San Diego
 1Vacation Photos&lt;tab&gt;vacation
 </code></pre>
-
 <p>Each of the subfolders (blog, movies, and vacation) will have its own
 gophermap. The blog and movie reviews will be text files (item type 0), while
 the vacation photos will be image files (item type I).</p>
-
 <h3 id="add-content">Add content</h3>
-
 <p>This is the simplest part of setting up your gopherhole. To add content just
 add files and folders to your gopher home folder and/or subfolders. Update your
 gophermaps (if you have them) and you’re off!</p>
-
-<!--  vim: set shiftwidth=4 tabstop=4 expandtab: -->
+<!-- raw HTML omitted -->
 
   </div>
 
