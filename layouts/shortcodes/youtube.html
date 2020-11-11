@@ -1,0 +1,26 @@
+{{ if or (eq (index .Params 1) "widescreen") (not (index .Params 1) ) }}
+  {{ $.Scratch.Add "ratio" 56.25 }}
+{{ else if eq (index .Params 1) "standard" }}
+  {{ $.Scratch.Add "ratio" 75 }}
+{{ else }}
+  {{ $nums := split (index .Params 1) ":" }}
+  {{ $.Scratch.Add "ratio" (div (mul (int (index $nums 1)) 100.0) (int (index $nums 0))) }}
+{{ end }}
+
+{{ if (index .Params 2) }}
+  {{ $.Scratch.Add "start" (add "?start=" (index .Params 2)) }}
+{{ else }}
+  {{ $.Scratch.Add "start" "" }}
+{{ end }}
+
+{{ if (index .Params 3) }}
+  {{ $.Scratch.Add "end" (add "&end=" (index .Params 3)) }}
+{{ else }}
+  {{ $.Scratch.Add "end" "" }}
+{{ end }}
+
+<div style="position: relative; padding-bottom: {{ $.Scratch.Get "ratio" }}%; overflow: hidden;">
+    <iframe loading="lazy" style="position: absolute; width: 100%; height: 100%;"
+        src="https://www.youtube.com/embed/{{ index .Params 0 }}{{ $.Scratch.Get "start" }}{{ $.Scratch.Get "end" }}" allowfullscreen frameborder="0">
+    </iframe>
+</div>

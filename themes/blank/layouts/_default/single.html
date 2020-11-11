@@ -1,0 +1,25 @@
+{{ partial "header.html" . }}
+<header>
+  <a id="back" href="{{ .Site.BaseURL }}">←</a>
+</header>
+<main>
+  <article class="h-entry">
+    <h1 class="p-name">{{ .Title }}</h1>
+    <span class="info">
+      <time class="dt-published" datetime="{{ .Date }}">{{ .Date.Format "2006.01.02" }}</time>
+      <ul id="tags">
+        {{ $tags := .Params.tags }}
+        {{ if $tags }}
+        {{ range sort .Params.tags }}
+        <li><a class="p-category" href="{{ "/tags/" | relLangURL }}{{ . | urlize }}">{{ . }}</a></li>
+        {{ end }}
+        {{ end }}
+      </ul>
+    </span>
+    <div class="e-content">
+      {{ .Content }}
+    </div>
+  </article>
+</main>
+</body>
+</html>

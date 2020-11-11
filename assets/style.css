@@ -1,0 +1,235 @@
+body {
+	font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+	line-height: 28px;
+	font-weight: 500;
+	overflow-x: hidden;
+}
+
+h1 {
+	font-size: 32px;
+	line-height: 1.5em;
+	font-weight: bold;
+	margin-bottom: 0;
+}
+
+h1 a,
+h2 a,
+h3 a {
+	box-shadow: inset 0 -1px 0 0 #fff, inset 0 -3px 0 0 #debdde;
+}
+
+h1 a:hover,
+h2 a:hover,
+h3 a:hover {
+	box-shadow: inset 0 -1px 0 0 #fff, inset 0 -3px 0 0 #780078;
+}
+
+h2 {
+	font-size: 18px;
+}
+
+h3 {
+	font-size: 24px;
+}
+
+#list h1,
+#index h1 {
+	font-size: 24px;
+	font-style: italic;
+	line-height: 1.5em;
+}
+
+#list h2,
+#index h2 {
+	margin-top: 0;
+	margin-bottom: 50px;
+	border-bottom: 1px solid #ccc;
+}
+
+#list h3,
+#index h3 {
+	margin-bottom: 0;
+}
+
+p, li {
+	font-size: 22px;
+	line-height: 1.5em;
+	font-weight: 400;
+}
+
+.p-category {
+	font-size: 18px;
+	color: #333;
+	box-shadow: none;
+	font-style: italic;
+}
+
+.p-category:hover {
+	box-shadow: 0 0 0 0 #303030, 0 1px 0 0 #780078;
+}
+
+img {
+	max-width: 100%;
+}
+
+blockquote {
+	font-size: 22px;
+	font-weight: 400;
+	font-style: italic;
+}
+
+pre {
+	font-size: 18px;
+	font-weight: 400;
+}
+
+a {
+	color: #59006b;
+	font-weight: 600;
+	text-decoration: none;
+	text-shadow: 1px 1px 0 #fff, -1px 1px 0 #fff, 2px 0 0 #fff, -2px 0 0 #fff;
+	box-shadow: inset 0 2px 0 0 #fff, inset 0 -1px 0 0 #debdde;
+}
+
+a:hover {
+	transition: box-shadow 0.3s;
+	box-shadow: inset 0 2px 0 0 #fff, inset 0 -1px 0 0 #780078;
+}
+
+main {
+	margin: 0 auto;
+	max-width: 800px;
+	padding: 1px 20px 20px 60px;
+}
+
+#back {
+	font-size: 40px;
+	text-decoration: none;
+	text-shadow: none;
+	box-shadow: none;
+	display: block;
+	position: fixed;
+	background: #000;
+	color: #fff;
+	left: 0;
+	top: 0;
+	height: 100%;
+	padding: 5px;
+	box-sizing: border-box;
+}
+
+#back::after {
+	content: 'BACK';
+	position: absolute;
+	transform: rotate(90deg);
+	left: 45px;
+	top: 40px;
+	transform-origin: 0 0;
+	font-size: 0.7em;
+}
+
+#index ul,
+#index li,
+#tags,
+#tags li {
+	display: inline-block;
+	margin: 0;
+	padding: 0 5px 0 0;
+}
+
+#index li a,
+#tags li a {
+	color: #888;
+}
+
+time {
+	margin-right: 5px;
+	color: #888;
+}
+
+footer {
+	margin-top: 25px;
+}
+
+.highlight pre {
+	padding: 10px;
+	font-family: Consolas, "Andale Mono WT", "Andale Mono", "Lucida Console", "Lucida Sans Typewriter", "DejaVu Sans Mono", "Bitstream Vera Sans Mono", "Liberation Mono", "Nimbus Mono L", Monaco, "Courier New", Courier, monospace;
+	font-size: 18px;
+	line-height: 1.2em;
+	overflow-x: scroll;
+}
+
+figure {
+	text-align: center;
+}
+
+.info {
+	border-bottom: 1px solid #ccc;
+	display: block;
+}
+
+@media screen and (max-width: 600px) {
+	#back {
+		position: absolute;
+		padding-left: 30px;
+		height: 46px;
+		width: 100%;
+	}
+
+	#back::after {
+		content: 'BACK';
+		position: static;
+		transform: none;
+	}
+
+	main {
+		padding: 40px 20px 20px 20px;
+	}
+}
+
+@media (prefers-color-scheme: dark) {
+	body {
+		background: #303030;
+		color:#c1c1c1;
+		font-weight: 400;
+	}
+	h3 {
+		font-weight: 400;
+	}
+	a {
+		color: white;
+		text-shadow: 1px 1px 0 #303030, -1px 1px 0 #303030, 2px 0 0 #303030, -2px 0 0 #303030;
+		transition: box-shadow 0.7s;
+		box-shadow: 0 0 0 0 #303030, 0 1px 0 0 #97ecec;
+	}
+	a:hover {
+		box-shadow: 0 0 0 0 #303030, 0 3px 0 0 aqua;
+	}
+
+	.p-category:hover {
+		box-shadow: 0 0 0 0 #303030, 0 1px 0 0 #97ecec;
+	}
+
+	h1 a,
+	h2 a,
+	h3 a {
+		transition: box-shadow 0.7s;
+		box-shadow: 0 0 0 0 #303030, 0 1px 0 0 #97ecec;
+	}
+
+	h1 a:hover,
+	h2 a:hover,
+	h3 a:hover {
+		box-shadow: 0 0 0 0 #303030, 0 3px 0 0 aqua;
+	}
+	#index li a,
+	#tags li a {
+		color: #888;
+	}
+	#back {
+		color: #fff;
+	}
+	time {
+		color: #888;
+	}
+}

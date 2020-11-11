@@ -2,11 +2,11 @@ baseURL = "http://gopher.zone/"
 canonifyurls = true
 languageCode = "en-us"
 publishDir = "docs"
-theme = "black-and-light"
+theme = "blank"
 title = "Highway to the Gopher Zone"
 
 pygmentsstyle       = "bw"
-pygmentscodefences  = true
+pygmentsCodeFences = true
 
 [params]
   sitename = "Highway to the Gopher Zone"
@@ -15,3 +15,9 @@ pygmentscodefences  = true
 [[menu.main]]
     name = "About"
     url  = "https://github.com/jamestomasino/gopher.zone/blob/master/README.md"
+
+[author]
+    name = "James Tomasino"
+
+[permalinks]
+  post = "/:title/"

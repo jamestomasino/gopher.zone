@@ -1,0 +1,10 @@
+{{ partial "header.html" . }}
+<main id="index" class="h-feed">
+<h1>{{ .Site.Title }}</h1>
+<h2>{{ .Site.Params.description }}</h2>
+{{ range (where .Site.RegularPages "Type" "post") }}
+{{ partial "summary.html" . }}
+{{ end }}
+</main>
+</body>
+</html>

@@ -1,0 +1,9 @@
+<article class="h-entry">
+  <h3><a href="{{ .Permalink }}" class="p-name u-url">{{ .Title }}</a></h3>
+  <time class="dt-published" datetime="{{ .Date }}">{{ .Date.Format "2006.01.02" }}</time>
+  <ul>
+    {{ range .Params.tags }}
+    <li><a class="p-category" href="{{ "/tags/" | relLangURL }}{{ . | urlize }}">{{ . }}</a></li>
+    {{ end }}
+  </ul>
+</article>

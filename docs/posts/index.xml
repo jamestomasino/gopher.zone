@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>Posts on Highway to the Gopher Zone</title>
     <link>http://gopher.zone/posts/</link>
@@ -20,6 +20,136 @@
       <description>Original published by Paul Scott at prgmr.com
  If you read the History of Gopher then you might want to make your own server. The process isn’t complicated, thanks to an application called Pygopherd. You will need a Linux machine or virtual machine (this article uses Ubuntu) with Python installed (default on most modern distros). There are just a few steps to follow.
 Step 1: Make sure that pygopherd is in your repositories.</description>
+      <content:encoded>
+      <![CDATA[
+        <p>Original published by <strong>Paul Scott</strong> at
+<em><a href="https://prgmr.com/blog/gopher/2018/11/09/setting-up-gopherserver.html">prgmr.com</a></em></p>
+<hr>
+<p>If you read the History of Gopher then you might want to make your own server.
+The process isn’t complicated, thanks to an application called Pygopherd. You
+will need a Linux machine or virtual machine (this article uses Ubuntu) with
+Python installed (default on most modern distros). There are just a few steps
+to follow.</p>
+<h2 id="step-1-make-sure-that-pygopherd-is-in-your-repositories">Step 1: Make sure that pygopherd is in your repositories.</h2>
+<pre><code>$ apt-cache search pygopherd
+</code></pre>
+<h2 id="step-2-install-pygopherd">Step 2: Install pygopherd</h2>
+<pre><code>$ sudo apt-get install pygopherd
+</code></pre>
+<h2 id="step-3-configure-pygopherd">Step 3: Configure pygopherd</h2>
+<p>Open /etc/pygopherd/pygopherd.conf in your favorite editor. The config file is
+well-commented and mostly self-explanatory. The most critical change is the
+name of your server, which allows a gopher client to find your server. In your
+text editor find “servername” and configure:</p>
+<pre><code>servername = &lt;IP or Domain&gt;
+</code></pre>
+<p>Your IP address is available in /etc/network/interfaces.</p>
+<h2 id="step-4-set-up-the-server">Step 4: Set up the server</h2>
+<h3 id="stop-start-and-restart-your-gopher-server">Stop, start, and restart your gopher server</h3>
+<p>Your gopher server is up by default. Start/stop/restart the service using:</p>
+<pre><code>$ sudo /etc/init.d/pygopherd start
+$ sudo /etc/init.d/pygopherd stop
+$ sudo /etc/init.d/pygopherd restart
+</code></pre>
+<h3 id="change-your-default-gopher-directory">Change your default gopher directory</h3>
+<p>By default, the directory where your gopher-related files are stored is
+/var/gopher. To change this directory open up pygopherd.config and edit the
+setting root=/var/gopher (located around line 120 in the config file) to your
+desired directory. Don’t forget to add a gophermap to the new directory. (For
+more about gophermaps, see next.)</p>
+<h2 id="step-5-configure-the-gophermap-and-add-content">Step 5: Configure the gophermap and Add Content</h2>
+<p>Your gophermap is an index for each folder in your gopherhole.</p>
+<p>Technically, a folder doesn’t need a gophermap. However the gophermap file can
+be quite useful. It gives you more control over the structure of your
+gopherhole, lets you add links and text to your pages.</p>
+<p>With a gophermap your server will appear as a list of files and links, with
+comments and other information that you might choose to add. Without the
+gophermap your server will appear as a raw list of files and folders, navigable
+in a gopher client but with less information for your users.</p>
+<p>If you choose NOT to use a gophermap then you must delete the default gophermap
+file. A gopher client will look for the gophermap by default and if it’s there
+then it will override the other content in your folder. If you do use
+a gophermap then you will have to update it every time you add or delete
+content from the folder.</p>
+<h3 id="gophermap-file-syntax">Gophermap file syntax</h3>
+<p>In a Gopher menu&rsquo;s source code, a one-character code indicates what kind of
+content the client should expect. This code may either be a digit or a letter
+of the alphabet; letters are case-sensitive.</p>
+<p>RFC 1436, the Gopher technical spec, defines 14 item types. Type 3 is an error
+code for exception handling. Gopher client authors improvised item types
+h (HTML), i (informational message), and s (sound file) after the publication
+of RFC 1436.</p>
+<pre><code>Canonical Types
+0   Text File
+1   Gopher submenu or link to another gopher server
+2   CCSO Nameserver
+3   Error code returned by a Gopher server to indicate failure
+4   BinHex-encoded file (primarily for Macintosh computers)
+5   DOS file
+6   uuencoded file
+7   Gopher full-text search
+8   Telnet
+9   Binary file
++   Mirror or alternate server (for load balancing or in case of primary server downtime)
+g   GIF file
+I   Image file
+T   Telnet 3270
+Non-Canonical Types
+h   HTML file
+i   Informational message
+s   Sound file
+</code></pre>
+<p>To set up a very basic gopherhole, you need only three item types:
+i (informational message), 1 (link or subdirectory), and 0 (text file). Edit
+the gophermap file at</p>
+<pre><code>/var/gopher/gophermap
+</code></pre>
+<p>A gophermap is formatted as a set of lines, one for each item, using
+tab-delimited fields with the following syntax:</p>
+<pre><code>Tlabel&lt;tab&gt;path&lt;tab&gt;host&lt;tab&gt;port
+
+Where:
+T      The item type code (e.g. 1, 0, i)
+label  A human-readable label for this item (e.g. Books, Movies)
+path   The relative path to the target file
+host   The hostname of the target gopher server
+port   The port that the gopher server is listening on (usually 70)
+       A literal tab character (ASCII character 9)
+</code></pre>
+<p>Note that there is no space or tab between the item type and the label.</p>
+<p>You can omit the host and port fields if your items are on the same server as
+the gophermap. You can omit everything but the item type and label for
+informational items.</p>
+<p>So suppose you use the default setup of /var/gopher as your home folder for
+content and your main gophermap. In that folder you have the gophermap; an
+“AboutMe” file and three subfolders for a blog, movie reviews and vacation
+photos.</p>
+<p>The main gophermap might look like this, with informational items to explain
+each folder.</p>
+<pre><code>iWelcome to my Gopherhole!
+i
+0A little bit about me.&lt;tab&gt;about.txt
+i
+iHere's my Blog, &quot;The Technical Technical Writer&quot;.
+1Blog&lt;tab&gt;blog
+i
+iReviews of some of my favorite movies.
+1Reviews&lt;tab&gt;movies
+i
+iPics from my vacation in San Diego
+1Vacation Photos&lt;tab&gt;vacation
+</code></pre>
+<p>Each of the subfolders (blog, movies, and vacation) will have its own
+gophermap. The blog and movie reviews will be text files (item type 0), while
+the vacation photos will be image files (item type I).</p>
+<h3 id="add-content">Add content</h3>
+<p>This is the simplest part of setting up your gopherhole. To add content just
+add files and folders to your gopher home folder and/or subfolders. Update your
+gophermaps (if you have them) and you’re off!</p>
+<!-- raw HTML omitted -->
+
+      ]]>
+      </content:encoded>
     </item>
     
     <item>
@@ -30,6 +160,17 @@ Step 1: Make sure that pygopherd is in your repositories.</description>
       <guid>http://gopher.zone/posts/how-to-gophermap/</guid>
       <description>Originally published by cat at gopher://baud.baby/0/phlog/fs20181102.txt
  </description>
+      <content:encoded>
+      <![CDATA[
+        <p>Originally published by <strong>cat</strong> at
+<em>gopher://baud.baby/0/phlog/fs20181102.txt</em></p>
+<hr>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+
+      ]]>
+      </content:encoded>
     </item>
     
     <item>
@@ -42,6 +183,85 @@ Step 1: Make sure that pygopherd is in your repositories.</description>
  Originally published by ckeen at gopher://vernunftzentrum.de/0/ckeen/phlog/2018-03-05-What-makes-gopher-special-for-me.md
 Sean Tilly (someone I don&amp;rsquo;t know yet) has asked on mastodon about the recurring mentions of gopher and what&amp;rsquo;s so special about it. This got me thinking and these are my reasons why I think gopher is interesting:
 It is simple: There are no fancy frameworks to learn, the programs needed to run for hosting gopher yourself is tiny compared to other things on the internet.</description>
+      <content:encoded>
+      <![CDATA[
+        <p>This is a collection of posts about what makes gopher special.</p>
+<hr>
+<p>Originally published by <strong>ckeen</strong> at
+<em>gopher://vernunftzentrum.de/0/ckeen/phlog/2018-03-05-What-makes-gopher-special-for-me.md</em></p>
+<p>Sean Tilly (someone I don&rsquo;t know yet) has asked on <a href="https://social.nasqueron.org/@deadsuperhero/99630052661982090">mastodon</a> about
+the recurring mentions of gopher and what&rsquo;s so special about it. This
+got me thinking and these are my reasons why I think gopher is
+interesting:</p>
+<p>It is simple: There are no fancy frameworks to learn, the programs
+needed to run for hosting gopher yourself is tiny compared to other
+things on the internet.</p>
+<p>Because it is simple and way off the mainstream it encourages a do
+it yourself attitude. Almost nobody is a consumer of some &lsquo;publishing&rsquo;
+platform, everyone is making it up as they go. And for the people
+that keep on using it you can see a lot of unique and different
+styles in creating and presenting content.</p>
+<p>So not only in terms of protocols, complexity and software but also
+in the mindset of its current users, gopher is the anti-thesis to
+the &lsquo;commercial&rsquo; web.</p>
+<p>This kind of like feels a lot like when people started typing out
+HTML pages manually and experimenting with linking styles, how to
+communicate with others etc.</p>
+<p>Gopher is still a lot simpler than that though, kind of like the
+web how it could have been for people.</p>
+<p>So, I ask you, dear reader: What does gopher mean to you?</p>
+<hr>
+<p>Originally posted by <strong>jynx</strong> at
+<em>gopher://sdf.org/0/users/jynx/dat/20180305.post</em></p>
+<h3 id="on-the-specialness-of-gopher-reply-to-ckeen">On the specialness of gopher (reply to ckeen)</h3>
+<p>Personally, I love and use gopher for the following reasons:</p>
+<ul>
+<li>It is clean &ndash; no ads, no bullshit</li>
+<li>It is fast &ndash; text screams over the network</li>
+<li>The citizens are also the creators &ndash; not passive</li>
+<li>High signal to noise ratio</li>
+<li>As a on-and-off-again Linux user for the past 20 years, I have learned so much from setting up my server and reading phlog posts. I find it a truly valuable resource. (I mainly run FreeBSD now, gopher led me to it)</li>
+</ul>
+<p>Ancient tools and utilities have become daily use items, and I like the people. I may disagree with a lot of the politics, but it is not so polarized on gopher that it causes a division. The general lack of comments helps this. A live-and-let-live atmosphere pervades.</p>
+<p>Thats what makes gopher special to me in a nutshell.</p>
+<hr>
+<p>Originally posted by <strong>tomasino</strong> at
+<em>gopher://gopher.black/1/phlog/20180305-what-makes-gopher-special</em></p>
+<p>ckeen recently wrote about what makes gopher special to him.
+He and jynx nail it pretty well when they talk about the
+simplicity, creator/consumer dynamic, and signal to noise ratio.
+I like the intentionality of it all as well. You don&rsquo;t just
+accidentally create a gopher hole. You didn&rsquo;t just click a link to
+oAuth somewhere and start posting nonsense. You chose to create an
+account somewhere that offered a gopher server, or you rolled your
+own. You sat there with the text editor crafting your message.
+It&rsquo;s simple, yes, but it&rsquo;s also much more complicated.</p>
+<p>In a sense, the technology itself and its relatively esoteric and
+retro nature create a sort of gatekeeper. Gatekeeping is generally
+used in a negative connotation these days, but I think this type of
+natural systems gatekeeping is different. It&rsquo;s not prejudiced
+against a people or person for identity, but for intent, will, and
+interest. The technology hurdles aren&rsquo;t that high to say you have
+to be a coder to make it work. Cat, for instance, has one of
+the prettiest gopher holes and he does everything by hand using
+the simplest tools. In place of fancy coding proficiency he has
+demonstrated excellent interest and will to build Fax Sex.</p>
+<p>I love nerdy communities when they&rsquo;re seething with excitement and
+intention. I hate nerdy communities when they&rsquo;re filled with
+criticism, angst, and envy. Gopher satisfies the first group well
+and avoids the second. Perhaps it is as jynx says, a side effect
+of no comments. Perhaps it&rsquo;s just the community by chance. Maybe
+it&rsquo;s a side effect of the manual execution? You can&rsquo;t do
+a drive-by trolling on gopher, after all. Once you sink in the
+time to get set up, you&rsquo;re part of things.</p>
+<p>At the end of the day, I guess it all boils down to content.
+There&rsquo;s a lot of people on here that are doing interesting things.
+Sometimes it&rsquo;s computer related and sometimes not, but that
+exceptional drive to &ldquo;do&rdquo; things is contagious and I love it.</p>
+<!-- raw HTML omitted -->
+
+      ]]>
+      </content:encoded>
     </item>
     
     <item>
@@ -53,6 +273,60 @@ It is simple: There are no fancy frameworks to learn, the programs needed to run
       <description>Originally published by bitreich.org at gopher://bitreich.org/0/tutorials/publish-gophernicus.txt
  Gophernicus is quite fussy about permissions, to minimise the risk of accidentally serving files not intended for public consumptions. Only world accessible content will be served, so chmod files o+r and directories o+rw. This is a common cause of confusion and frustration for beginners.
 Gophernicus supports so-called &amp;ldquo;personal gopherspaces&amp;rdquo;. If a user &amp;ldquo;bob&amp;rdquo; has a directory named &amp;ldquo;public_gopher&amp;rdquo; in their home directory, then the file /home/bob/public_gopher/foo/bar/baz.</description>
+      <content:encoded>
+      <![CDATA[
+        <p>Originally published by <strong>bitreich.org</strong> at
+<em>gopher://bitreich.org/0/tutorials/publish-gophernicus.txt</em></p>
+<hr>
+<p>Gophernicus is quite fussy about permissions, to minimise the risk of
+accidentally serving files not intended for public consumptions.  Only
+world accessible content will be served, so chmod files o+r and
+directories o+rw.  This is a common cause of confusion and frustration
+for beginners.</p>
+<p>Gophernicus supports so-called &ldquo;personal gopherspaces&rdquo;.  If a user
+&ldquo;bob&rdquo; has a directory named &ldquo;public_gopher&rdquo; in their home directory,
+then the file /home/bob/public_gopher/foo/bar/baz.ext will be
+accessible via the selector ~bob/foo/bar/baz.ext (if permissions
+allow).  The name of the &ldquo;public_gopher&rdquo; directory can be changed via
+the -u option.  This is a convenient feature for those who want to
+host multiple users, although it can of course be emulated with
+symlinks for other server software.</p>
+<p>Automatically generated directory listings list files in alphabetical
+order.  This is less than ideal for phloggers who usually want the
+most recent entry to appear at the top.  The conventional workaround
+for this seems to be to prefix filenames with some kind of timestamp
+that sorts nicely alphabetically.  YYYYMMDD timestamps obviously work
+nicely, but a three-character alphanumeric code also sees some use,
+see e.g. gopher://grex.org:70/0/~tfurrows/phlog_filename.txt.</p>
+<p>Automatically generated menus can be overridden by creating a file
+named &ldquo;gophermap&rdquo; in any directory.  Menu items are specified with
+lines of the type:</p>
+<p>Xname&lt;TAB&gt;selector&lt;TAB&gt;host&lt;TAB&gt;port</p>
+<p>where X is the gopher item type. The host and port may be omitted,
+in which case they will be set to the same host and port that the
+server is running on (the server&rsquo;s idea of its own hostname can be
+forced with the -h option).  The selector may also be omitted, in
+which case it will be set equal to the name.  Lines not beginning
+with a valid item type or with one of Gophernicus&rsquo; own non-standard
+control characters are treated as information lines (type i).</p>
+<p>It is important to note that selectors which do not begin with a /
+will be interpreted as <em>relative</em> links, e.g. a selector of &ldquo;bar&rdquo;
+specified in &ldquo;foo/gophermap&rdquo; will point to &ldquo;foo/bar&rdquo;.  Selectors
+beginning with / are treated as absolute links.  Some other gopher
+servers with seemingly compatible gophermap syntax (e.g. PyGopherd)
+treat all selectors as absolute and this can cause headaches when
+attempting to port gophermaps from one server to another.</p>
+<p>Dynamically generated menus are possible by making the &ldquo;gophermap&rdquo;
+file a world-executable script which produces output on stdout of
+exactly the same format as a static gophermap.</p>
+<p>As a lightweight alternative to gophermaps, a file named &ldquo;gophertag&rdquo;
+may be placed in any directory containing a &ldquo;user friendly&rdquo; name for
+that directory to be used in automatically generated listings (e.g.
+you could placed a gophertag file containing the text
+&ldquo;Miscellaneous photographs&rdquo; in the directory &ldquo;misc_photos&rdquo;).</p>
+
+      ]]>
+      </content:encoded>
     </item>
     
     <item>
@@ -64,6 +338,67 @@ Gophernicus supports so-called &amp;ldquo;personal gopherspaces&amp;rdquo;. If a
       <description>Originally published by bitreich at gopher://bitreich.org/0/tutorials/publishing-guideline.txt
  This document will give you a few hints about publishing through gopher.
 Line length The rendering of content is client specific. However most clients will present the user with a text based interface, so you should be conservative on the maximum line length in your menus. As clients will add a couple of characters to mark item types, a line width of 69 characters is recommended.</description>
+      <content:encoded>
+      <![CDATA[
+        <p>Originally published by <strong>bitreich</strong> at
+<em>gopher://bitreich.org/0/tutorials/publishing-guideline.txt</em></p>
+<hr>
+<p>This document will give you a few hints about publishing through
+gopher.</p>
+<h2 id="line-length">Line length</h2>
+<p>The rendering of content is client specific. However most clients
+will present the user with a text based interface, so you should be
+conservative on the maximum line length in your menus. As clients
+will add a couple of characters to mark item types, a line width of
+69 characters is recommended.</p>
+<h2 id="the-menu">The menu</h2>
+<p>The main entry point and user interface between your readers and your
+content is the gopher menu item (item &lsquo;1&rsquo; as you may recall).  The
+selectors in a menu will define the information hierarchy. Choose a
+flat hierarchy if you can so readers will get to the content easily
+and without traversing too many menus.</p>
+<p>Use helpful item descriptions for your selectors, this will aid both
+human and nonhuman readers: indexers will most likely index menu
+items only.  Be as specific as possible. If it is a binary item type
+hint at its intended format, so your readers will know what to
+expect. Using a useful filename scheme for selectors is also helpful.</p>
+<p>You may decorate your menus with informational items (item &lsquo;i&rsquo;).
+Clients will display them as is without additional tags.  Around the
+gopherspace a lot of ASCII art is used to create a pleasant
+appearance of a gopher site. Some services also include explanations
+for the specific menu, and use &lsquo;i&rsquo; items for grouping selectors.</p>
+<p>There are clients that do not offer a &lsquo;back&rsquo; button. Be kind to those
+users and provide navigational selectors in your menus.  Make the
+journey through your gopher space easy!</p>
+<p>On your travels through gopher sites, you will encounter gopher sites
+that use menu and informational items to mimick a page with embedded
+links.  There is an ongoing dispute whether this is good style. We do
+not recommend this style as it delutes the meaning of the menu item.
+For starters you should stick to single file items to store your
+content. Once you gain more experience with publishing content in
+gopher you can always change your mind later!</p>
+<h2 id="selector-hierarchy">Selector hierarchy</h2>
+<p>By design a gopher site should present a hierarchy of content
+selectors to the user.  These mimick a file system by intention.
+However this does not need to mtch the real hierarchy of your storage
+filesystem.  An example:</p>
+<p>Alicia has a gopher blog (aka &lsquo;phlog&rsquo;). She writes daily posts.  To
+make it easy on her users she has a menu item on the phlog/ selector
+that presents the latest 5 posts and a selector to an archive menu
+linking to all her posts.  On disk however both the menus and the
+articles reside in the same directory. A script creates the
+selectors in the menu files and rotates them. The post files however
+remain untouched and their selectors will not change over time.  This
+means that external links to her post will still be valid later.</p>
+<h2 id="site-generators">Site generators</h2>
+<p>The easiest creation of content is done manually. If you would like
+to automate some task then there are site generators. Most of these
+consists of a collection of shell scripts you can adapt to your
+needs. Search veronica for cl-yag or burrow for starters.</p>
+<!-- raw HTML omitted -->
+
+      ]]>
+      </content:encoded>
     </item>
     
     <item>
@@ -76,6 +411,65 @@ Line length The rendering of content is client specific. However most clients wi
  Hello dear reader,
 If you have heard about gopher and want to explore its space but feel lost about how to achieve that, this text is for you. We will assume that you have no technical skill so everyone can read this.
 Gopher is the name of a protocol for sharing text, images or any kind of file. A network protocol is a set of rules which allow to create a common service for different people, everyone needing to respect thoses rules to be able to communicate with each other.</description>
+      <content:encoded>
+      <![CDATA[
+        <p>Originally published by <strong>bitreich.org</strong> at
+<em>gopher://bitreich.org/0/tutorials/beginners.txt</em></p>
+<hr>
+<p>Hello dear reader,</p>
+<p>If you have heard about gopher and want to explore its space but feel
+lost about how to achieve that, this text is for you. We will assume
+that you have no technical skill so everyone can read this.</p>
+<p>Gopher is the name of a protocol for sharing text, images or any kind
+of file. A network protocol is a set of rules which allow to create a
+common service for different people, everyone needing to respect
+thoses rules to be able to communicate with each other. Some people
+writing code (called Developers) will write &ldquo;Clients&rdquo; software for the
+end-user and others developers will write &ldquo;Servers&rdquo; software which
+will allow to publish content. The gopher protocol is so simple that
+anyone with basic knowledge of computer science can write its own
+client or server easily. Using gopher implies to understand the
+protocol itself, but we promise it&rsquo;s really easy.</p>
+<p>Gopher is an enjoyable way to browse informations. Every gopherhole
+[that is the name given to someone&rsquo;s gopher content] looks like
+another one. There is no way to customize a gopherhole display except
+from the text. While this can look a bit harsh, this makes gopher
+universal. If you know how to browse one gopherhole, you will know how
+to browse all others because the way to do it is consistent.</p>
+<p>So, let&rsquo;s speak about how gopher works. First, gopher requires 3
+informations if you want to get content. You will need a remote
+address to connect to [it&rsquo;s called an hostname, like &ldquo;floodgap.com&rdquo;],
+the data type and a path to the data. The url looks like this :</p>
+<pre><code>gopher://hostname/type/path
+</code></pre>
+<p>The most important type is the type 1, which is the gopher menu
+type. A gopher menu is an index made of differents lines, each line
+having a type field to know what kind of data it leads to. It will
+allow you to browse from menu to menu or from a menu to a content
+(image, text, music, archives&hellip;).</p>
+<p>Here is the list of the most used data types allowed on gopher, the
+complete list is defined in a document named RFC 1436 which defines
+the gopher protocol :</p>
+<ul>
+<li>type i is a line of text in the menu, it&rsquo;s not a link</li>
+<li>type 0 is a link to a text document</li>
+<li>type 1 is a link to another gopher menu</li>
+<li>type 3 means an error</li>
+<li>type 7 (search) asks a text input and lead to another menu</li>
+<li>type 9 is a link to a binary file (data archives, music&hellip;)</li>
+<li>type g is a link to a GIF file (animated picture)</li>
+<li>type I is a link to an image file</li>
+<li>type h is a link which lead to use another protocol (irc, http&hellip;)</li>
+</ul>
+<p>Only the types menu and search can lead to another content. Asking
+another type will lead to downloading a file.</p>
+<p>Now that you are ready to browse the gopher space, we recommend you to
+read the others tutorials about the gopher client software you would
+like to use.</p>
+<!-- raw HTML omitted -->
+
+      ]]>
+      </content:encoded>
     </item>
     
     <item>
@@ -86,6 +480,17 @@ Gopher is the name of a protocol for sharing text, images or any kind of file. A
       <guid>http://gopher.zone/posts/how-to-gopher/</guid>
       <description>Originally published by dbucklin at gopher://sdf.org:70/0/users/dbucklin/posts/how_gopher.txt
  </description>
+      <content:encoded>
+      <![CDATA[
+        <p>Originally published by <strong>dbucklin</strong> at
+<em>gopher://sdf.org:70/0/users/dbucklin/posts/how_gopher.txt</em></p>
+<hr>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+
+      ]]>
+      </content:encoded>
     </item>
     
     <item>
@@ -97,6 +502,51 @@ Gopher is the name of a protocol for sharing text, images or any kind of file. A
       <description>Original published by SDF at gopher://sdf.org:70/1/sdf/faq/GOPHER
 The article in this content is specific to setting up a gopher hole on SDF (The Super Dimensional Fortress) Public Access Unix System. Visit sdf.org for more information on how to create an account.
  This document was written with &amp;lsquo;mkgopher&amp;rsquo; in mind. You may be managing your space from the UNIX shell, but since &amp;lsquo;mkgopher&amp;rsquo; uses common UNIX commands, this should still be helpful.</description>
+      <content:encoded>
+      <![CDATA[
+        <p>Original published by <strong>SDF</strong> at <em>gopher://sdf.org:70/1/sdf/faq/GOPHER</em></p>
+<p>The article in this content is specific to setting up a gopher hole
+on SDF (The Super Dimensional Fortress) Public Access Unix System.
+Visit <a href="https://sdf.org">sdf.org</a> for more information on how to create an account.</p>
+<hr>
+<p>This document was written with &lsquo;mkgopher&rsquo; in mind.  You may be
+managing your space from the UNIX shell, but since &lsquo;mkgopher&rsquo;
+uses common UNIX commands, this should still be helpful.</p>
+<h2 id="setup">SETUP</h2>
+<p>This will create the directory for the top level of your GOPHERSPACE.
+Your URL will be &ldquo;gopher://sdf.lonestar.org/1/users/username&rdquo; (or
+&ldquo;gopher://sdf-eu.org/1/users/username&rdquo;) where &lsquo;username&rsquo; is your UNIX
+user id.  During your &lsquo;mkgopher&rsquo; session, this directory will be
+present.  If you don&rsquo;t create anyfiles or directories, the space
+will be removed to keep our site clean.</p>
+<p>NOTE: Unfortunately, most web browsers do not render gopher pages
+properly, let alone grok Gopher URLs.</p>
+<h2 id="title">TITLE</h2>
+<p>Your GOPHER URL is gopher://sdf.lonestar.org/1/users/login (or
+gopher://sdf-eu.org/1/users/login) where &lsquo;login&rsquo; is the UNIX user id
+you use to login to SDF.  Your SITE name is your &lsquo;login&rsquo;.  Since that
+is limited to 8 characters, you can use TITLE to set a 50 character
+or less title for your site.</p>
+<h2 id="describe">DESCRIBE</h2>
+<p>For each directory you create in your GOPHERSPACE you can use the
+DESCRIBE command to create a detailed description.  This entry is
+limited to 9 lines of roughly 50 characters per line.</p>
+<h2 id="mkdir">MKDIR</h2>
+<p>Create a subdirectory within your GOPHERSPACE.</p>
+<h2 id="rmdir">RMDIR</h2>
+<p>Remove a subdirectory within your GOPHERSPACE.</p>
+<h2 id="pico">PICO</h2>
+<p>Edit and publish a document.  You can also use this as a way to
+cut and paste text from your computer terminal to SDF.  ASCII upload
+mode can also be used, just start sending text once you open the
+editing buffer.</p>
+<h2 id="upload">UPLOAD</h2>
+<p>This should be used for large text files or binary data that cannot
+be transmitted via an ASCII transfer.  UPLOAD uses the ZMODEM file
+transfer protocol which some terminal emulators support (TeraTerm ..)</p>
+
+      ]]>
+      </content:encoded>
     </item>
     
     <item>
@@ -107,6 +557,35 @@ The article in this content is specific to setting up a gopher hole on SDF (The 
       <guid>http://gopher.zone/posts/what-is-gopher/</guid>
       <description>Original published by SDF at gopher://sdf.org:70/1/sdf/faq/GOPHER
  GOPHER is a network protocol that enables multiple servers to create a single, uniform filesystem that transcends system architecure and operating systems (GOPHERSPACE). With GOPHER, information holds the most value. Since presentation is uniform across GOPHERSPACE, the user does not encounter any challenges in &amp;lsquo;learning&amp;rsquo; a new site. Because of its simplicity and its emphasis on the importance of informational texts, GOPHER is ideal for those who are visually impared.</description>
+      <content:encoded>
+      <![CDATA[
+        <p>Original published by <strong>SDF</strong> at <em>gopher://sdf.org:70/1/sdf/faq/GOPHER</em></p>
+<hr>
+<p>GOPHER is a network protocol that enables multiple servers
+to create a single, uniform filesystem that transcends system
+architecure and operating systems (GOPHERSPACE).  With GOPHER,
+information holds the most value.  Since presentation is uniform
+across GOPHERSPACE, the user does not encounter any challenges
+in &lsquo;learning&rsquo; a new site.  Because of its simplicity and its
+emphasis on the importance of informational texts, GOPHER is
+ideal for those who are visually impared.</p>
+<p>A GOPHER client can be called from SDF by typing &lsquo;gopher&rsquo;.  A URL
+(Uniform Resource Locator) can be given as an argument.  The client
+itself is a document examiner.  You can use it to search text documents
+or download files.  Clients under X11, Macintosh and other systems
+can view pictures, and stream audio / video.</p>
+<p>Many people think the http protocol has deprecated gopher, but that
+just isn&rsquo;t true.  Where do you think GOPHERs live?  underground.</p>
+<p>When you build your GOPHERSPACE on SDF, you are contributing to an
+underground network of systems that still believe in the gopher
+protocol.  There is no commercialism, no banner ads, no spam, no
+pop-up ads.  GOPHER gives you what you want: information and files
+(in any form) without the silliness of HTML and clumsiness of websites.
+No HTML development is needed to contribute to GOPHERSPACE.. since
+sites are uniform, all you need to do is upload or create your files.</p>
+
+      ]]>
+      </content:encoded>
     </item>
     
   </channel>
